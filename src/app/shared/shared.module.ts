@@ -1,12 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent, StopPropagationDirective],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FontAwesomeModule,
+    RouterModule,
+    NgbModule
+  ],
+  exports:[
+    ReactiveFormsModule,
+    FormsModule,
+    NavbarComponent,
+    FontAwesomeModule,
+    RouterModule,
+    NgbModule,
+    StopPropagationDirective
   ]
 })
 export class SharedModule { }

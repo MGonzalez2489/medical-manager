@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light commerce-bar">
+    <a class="navbar-brand m-0" href="#" appStopPropagation (click)="openSideBar()">
+      <fa-icon [icon]="icons.faBars"></fa-icon>
+      <!-- {{app.name}} -->
+      mobile-size-view-name
+    </a>
+    <div class="nav-fill">
+      <div class="nav-search">
+        <!-- <app-searcher></app-searcher> -->
+      </div>
+    </div>
+  
+    <ul class="navbar-nav option-bar">
+      <li class="nav-item" ngbDropdown display="dynamic">
+        <a class="nav-link" href="#" ngbDropdownToggle appStopPropagation>
+          <span *ngIf="session">{{session.user.fullName}}</span>
+          <fa-icon [icon]="icons.faUser" *ngIf="!session"></fa-icon>
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <div *ngIf="!session">
+            <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/auth']" routerLinkActive="router-link-active">Login</a>
+          </div>
+          <div *ngIf="session">
+            <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/']">Account</a>
+            <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/']">Option 2</a>
+            <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/']">Option 3</a>
+            <a href="" appStopPropagation ngbDropdownItem (click)="logout()">Log out</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>

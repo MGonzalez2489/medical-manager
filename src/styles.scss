@@ -1,4 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: rgb(250, 250, 250);
+    //padding: 2em 1em;
+    height: 100vh;
+    width: 300px;
+    &.ng-sidebar--opened.ng-sidebar--over {
+        border-right: 1px solid rgb(202, 202, 202);
+        // box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
+    }
+}
+
+.form {
+    .invalid-feedback {
+        color: #dc3546;
+        padding-left: 3px;
+    }
+}
+
+.nav-fill {
+    display: flex;
+    position: static;
+    float: none;
+    flex: 1 1 auto;
+}

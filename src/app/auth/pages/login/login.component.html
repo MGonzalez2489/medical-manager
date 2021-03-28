@@ -1,0 +1,45 @@
+<div class="container login-page">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <div class="card card-form mt-5">
+          <div class="card-header bg-white border-0 d-flex justify-content-center">
+            <h1>Login</h1>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
+              <div class="form-group">
+                <label for="emailinp">Email</label>
+                <input id="emailinp" name="emailinp" placeholder="Email address" type="text"  class="form-control" formControlName="email" [ngClass]="{'is-invalid': isSubmitted && lForm.email.errors}" autofocus>
+                <div *ngIf="isSubmitted && lForm.email.errors" class="invalid-feedback">
+                  <span *ngIf="lForm.email.errors.required">Email is required</span>
+                  <span *ngIf="lForm.email.errors.email">Incorrect email format</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="passwordInp">Password</label>
+                <input id="passwordInp" name="passwordInp" placeholder="Password" type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': isSubmitted && lForm.password.errors}">
+                <div *ngIf="isSubmitted && lForm.password.errors" class="invalid-feedback">
+                  <span *ngIf="lForm.password.errors.required">Password is required</span>
+                </div>
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="rememberMe">
+                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+              </div>
+              <div class="form-group">
+                <!-- <app-alert-message *ngIf="errorMessage" [message]="errorMessage" [type]="alert"></app-alert-message> -->
+              </div>
+              <div class="form-group d-flex justify-content-center mt-5">
+                <button name="submit" type="submit" class="btn btn-primary w-75 ">Login</button>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer d-flex justify-content-between bg-white border-0">
+            <a href="#" [routerLink]="['/auth/reset-password']" routerLinkActive="router-link-active" >Forgot Password?</a>
+            <a href="#" [routerLink]="['/auth/sign-up']" routerLinkActive="router-link-active" >Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
