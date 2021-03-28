@@ -1,0 +1,2934 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "classes": [
+        {
+            "name": "Appointment",
+            "id": "class-Appointment-d7c9d87659db4b442ec1b31f2b8e8aeb",
+            "file": "src/app/core/models/db/Appointment.ts",
+            "type": "class",
+            "sourceCode": "import { AppointmentStatus } from \"../../enums\";\nimport { Doctor } from \"./Doctor\";\nimport { Patient } from \"./Patient\";\n\nexport class Appointment {\n  status: AppointmentStatus;\n  doctor: Doctor;\n  patient: Patient;\n  date: string;\n  durationAprox: number; //minutes\n}\n",
+            "properties": [
+                {
+                    "name": "date",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "doctor",
+                    "type": "Doctor",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "durationAprox",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "patient",
+                    "type": "Patient",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "status",
+                    "type": "AppointmentStatus",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "AppPage",
+            "id": "class-AppPage-ee2067dfb1c303f41003aea7d82d51e0",
+            "file": "e2e/src/app.po.ts",
+            "type": "class",
+            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  async navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl);\n  }\n\n  async getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText();\n  }\n}\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getTitleText",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "modifierKind": [
+                        120
+                    ]
+                },
+                {
+                    "name": "navigateTo",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<unknown>",
+                    "typeParameters": [],
+                    "line": 4,
+                    "modifierKind": [
+                        120
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "BaseSearchCriteria",
+            "id": "class-BaseSearchCriteria-cc440a021eb09885bffa1038359b627a",
+            "file": "src/app/core/models/searchCriteria/BaseSearchCriteria.ts",
+            "type": "class",
+            "sourceCode": "export class BaseSearchCriteria {\n    keyword: string;\n    page: number;      // number of current page\n    perPage: number;  // count per page\n    totalRecords: number; // total count\n    totalPages: number; // total count of pages\n    orderBy: string;\n    orderDir: string;\n    constructor() {\n        this.page = 1;\n        this.perPage = 10;\n        this.totalPages = 0;\n    }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "properties": [
+                {
+                    "name": "keyword",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "orderBy",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "orderDir",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "page",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "perPage",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "totalPages",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "totalRecords",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "Doctor",
+            "id": "class-Doctor-e1b0ed6b862a3a927e472a0751eaed6c",
+            "file": "src/app/core/models/db/Doctor.ts",
+            "type": "class",
+            "sourceCode": "import { User } from './User';\n\nexport class Doctor extends User {\n}\n",
+            "properties": [
+                {
+                    "name": "birthday",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "lastName",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "phone",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": "User",
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "GlobalConstants",
+            "id": "class-GlobalConstants-c353e1d4f23a1cafc5d869cbf4a4d9de",
+            "file": "src/app/common/global-constants.ts",
+            "type": "class",
+            "sourceCode": "export class GlobalConstants {\n    public static App = {\n        name: 'Nombre de la app'\n    }\n}",
+            "properties": [
+                {
+                    "name": "App",
+                    "defaultValue": "{\n        name: 'Nombre de la app'\n    }",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "modifierKind": [
+                        115
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "Office",
+            "id": "class-Office-26871cfd0633f916d752c4b23ed5c258",
+            "file": "src/app/core/models/db/Office.ts",
+            "type": "class",
+            "sourceCode": "import { Doctor} from './Doctor';\nimport { Patient } from './Patient';\nimport { Receptionist } from './Receptionist';\n\nexport class Office {\n  name: string;\n  address: string;\n  doctors: Array<Doctor>;\n  receptionist: Array<Receptionist>;\n  patients: Array<Patient>;\n\n  constructor() {\n    this.doctors = new Array<Doctor>();\n    this.receptionist = new Array<Receptionist>();\n    this.patients = new Array<Patient>();\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 10
+            },
+            "properties": [
+                {
+                    "name": "address",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "doctors",
+                    "type": "Array<Doctor>",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "patients",
+                    "type": "Array<Patient>",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "receptionist",
+                    "type": "Array<Receptionist>",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "Patient",
+            "id": "class-Patient-4f91bb9d2257d75e8f2fd491503255bd",
+            "file": "src/app/core/models/db/Patient.ts",
+            "type": "class",
+            "sourceCode": "import { User } from './User';\n\nexport class Patient extends User {\n}\n",
+            "properties": [
+                {
+                    "name": "birthday",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "lastName",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "phone",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": "User",
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "Receptionist",
+            "id": "class-Receptionist-b14b9bf216d1bd4bd66acba6dedf952f",
+            "file": "src/app/core/models/db/Receptionist.ts",
+            "type": "class",
+            "sourceCode": "import { User } from \"./User\";\n\nexport class Receptionist extends User {\n\n}\n",
+            "properties": [
+                {
+                    "name": "birthday",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "lastName",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                },
+                {
+                    "name": "phone",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "inheritance": {
+                        "file": "User"
+                    }
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": "User",
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "ReturnErrorModel",
+            "id": "class-ReturnErrorModel-b21198a2e9c4390e974d0b7b76df1e5f",
+            "file": "src/app/core/models/responses/return-error.model.ts",
+            "type": "class",
+            "sourceCode": "import { HttpErrorResponse } from '@angular/common/http';\n\nexport class ReturnErrorModel<T> {\n    httpError: number;\n    isSuccess: boolean;\n    message: string;\n    model: T;\n\n    constructor(errorValue: HttpErrorResponse) {\n        this.httpError = errorValue.error.httpError;\n        this.isSuccess = false;\n        this.message = errorValue.error.message;\n        this.model = errorValue.error.model;\n    }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "errorValue",
+                        "type": "HttpErrorResponse"
+                    }
+                ],
+                "line": 7,
+                "jsdoctags": [
+                    {
+                        "name": "errorValue",
+                        "type": "HttpErrorResponse",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "properties": [
+                {
+                    "name": "httpError",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "isSuccess",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "message",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "model",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "ReturnListModel",
+            "id": "class-ReturnListModel-43d6ed707512cba3f9a1c9916c02daa9",
+            "file": "src/app/core/models/responses/return-list.model.ts",
+            "type": "class",
+            "sourceCode": "export class ReturnListModel<T> {\n    isSuccess: boolean;\n    model: T[];\n    totalRecords: number;\n    totalPages: number;\n    message: string;\n    httpError: string;\n\n    constructor() {\n        this.model = [];\n    }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 7
+            },
+            "properties": [
+                {
+                    "name": "httpError",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "isSuccess",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "message",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "model",
+                    "type": "T[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "totalPages",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "totalRecords",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "ReturnModel",
+            "id": "class-ReturnModel-b112715c7bcc8f1c58ccda4a51a945b8",
+            "file": "src/app/core/models/responses/return.model.ts",
+            "type": "class",
+            "sourceCode": "export class ReturnModel<T> {\n    isSuccess: boolean;\n    model: T;\n    message: string;\n    httpError: string;\n}\n",
+            "properties": [
+                {
+                    "name": "httpError",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "isSuccess",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "message",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "model",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "User",
+            "id": "class-User-23fddeca6898d7fefe040a76ab5ee948",
+            "file": "src/app/core/models/db/User.ts",
+            "type": "class",
+            "sourceCode": "export abstract class User {\n  name: string;\n  lastName: string;\n  birthday:string;\n  email:string;\n  phone:string;\n}\n",
+            "properties": [
+                {
+                    "name": "birthday",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "lastName",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "phone",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [
+        {
+            "name": "StopPropagationDirective",
+            "id": "directive-StopPropagationDirective-9b7116cfea285663e4abd0f077555cee",
+            "file": "src/app/shared/directives/stop-propagation.directive.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, HostListener } from '@angular/core';\n\n@Directive({\n  selector: '[appStopPropagation]'\n})\nexport class StopPropagationDirective {\n\n  @HostListener('click', ['$event'])\n  public onClick(event: any): void {\n    event.preventDefault();\n    event.stopPropagation();\n  }\n\n}\n",
+            "selector": "[appStopPropagation]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "click",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any"
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "line": 9
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": []
+        }
+    ],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-3c5a680e02ababec4bc9612e858f83c5",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'medical-manager'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'medical-manager';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<router-outlet></router-outlet>"
+        },
+        {
+            "name": "AppointmentsComponent",
+            "id": "component-AppointmentsComponent-7ffdbb25aa7e4ebd33fa827356da1087",
+            "file": "src/app/modules/receptionist/pages/appointments/appointments.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-appointments",
+            "styleUrls": [
+                "./appointments.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./appointments.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-appointments',\n  templateUrl: './appointments.component.html',\n  styleUrls: ['./appointments.component.scss']\n})\nexport class AppointmentsComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./appointments.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"container  mt-3\">\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <h1>Citas</h1>\n        </div>\n    </div>\n    <div class=\"row mt-3\">\n        <div class=\"col-12 d-flex justify-content-between align-items-center\">\n            <input type=\"text\" class=\"form-control w-50\" name=\"\" id=\"\" aria-describedby=\"helpId\" placeholder=\"Buscar\">\n            <button type=\"button\" class=\"btn btn-primary\">Nuevo</button>\n        </div>\n    </div>\n    <div class=\"row mt-3\">\n        <div class=\"col-12\">\n            <table class=\"table\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">#</th>\n                        <th scope=\"col\">First</th>\n                        <th scope=\"col\">Last</th>\n                        <th scope=\"col\">Handle</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <th scope=\"row\">1</th>\n                        <td>Mark</td>\n                        <td>Otto</td>\n                        <td>@mdo</td>\n                    </tr>\n                    <tr>\n                        <th scope=\"row\">2</th>\n                        <td>Jacob</td>\n                        <td>Thornton</td>\n                        <td>@fat</td>\n                    </tr>\n                    <tr>\n                        <th scope=\"row\">3</th>\n                        <td>Larry</td>\n                        <td>the Bird</td>\n                        <td>@twitter</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-642c6c4e474cd5a0ac760dfda26b2fc9",
+            "file": "src/stories/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-button",
+            "styleUrls": [
+                "./button.css"
+            ],
+            "styles": [],
+            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 40
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 20
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 32,
+                    "type": "\"small\" | \"medium\" | \"large\""
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 46,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./button.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 48
+                    }
+                }
+            }
+        },
+        {
+            "name": "DoctorComponent",
+            "id": "component-DoctorComponent-e04e75143c834ecdccc8916d9bcddcbd",
+            "file": "src/app/modules/doctor/doctor.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-doctor",
+            "styleUrls": [
+                "./doctor.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./doctor.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-doctor',\n  templateUrl: './doctor.component.html',\n  styleUrls: ['./doctor.component.scss']\n})\nexport class DoctorComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./doctor.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>doctor works!</p>\n"
+        },
+        {
+            "name": "DoctorsComponent",
+            "id": "component-DoctorsComponent-953e38924b779161f019816432f00f49",
+            "file": "src/app/modules/receptionist/pages/doctors/doctors.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-doctors",
+            "styleUrls": [
+                "./doctors.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./doctors.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-doctors',\n  templateUrl: './doctors.component.html',\n  styleUrls: ['./doctors.component.scss']\n})\nexport class DoctorsComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./doctors.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"container  mt-3\">\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <h1>Doctores</h1>\n        </div>\n    </div>\n    <div class=\"row mt-3\">\n        <div class=\"col-12 d-flex justify-content-between align-items-center\">\n            <input type=\"text\" class=\"form-control w-50\" name=\"\" id=\"\" aria-describedby=\"helpId\" placeholder=\"Buscar\">\n            <button type=\"button\" class=\"btn btn-primary\">Nuevo</button>\n        </div>\n    </div>\n    <div class=\"row mt-3\">\n        <div class=\"col-12\">\n            <table class=\"table\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">#</th>\n                        <th scope=\"col\">First</th>\n                        <th scope=\"col\">Last</th>\n                        <th scope=\"col\">Handle</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <th scope=\"row\">1</th>\n                        <td>Mark</td>\n                        <td>Otto</td>\n                        <td>@mdo</td>\n                    </tr>\n                    <tr>\n                        <th scope=\"row\">2</th>\n                        <td>Jacob</td>\n                        <td>Thornton</td>\n                        <td>@fat</td>\n                    </tr>\n                    <tr>\n                        <th scope=\"row\">3</th>\n                        <td>Larry</td>\n                        <td>the Bird</td>\n                        <td>@twitter</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-246e2a69dc126a3bd76c6328dd3b93e2",
+            "file": "src/stories/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-header",
+            "styleUrls": [
+                "./header.css"
+            ],
+            "styles": [],
+            "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "user",
+                    "defaultValue": "null",
+                    "line": 53,
+                    "type": "unknown"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onCreateAccount",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 62,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onLogin",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 56,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onLogout",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 59,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".wrapper {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nsvg {\n  display: inline-block;\n  vertical-align: top;\n}\n\nh1 {\n  font-weight: 900;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nbutton + button {\n  margin-left: 10px;\n}\n",
+                    "styleUrl": "./header.css"
+                }
+            ],
+            "stylesData": ""
+        },
+        {
+            "name": "HomeComponent",
+            "id": "component-HomeComponent-0368ba31f32dcbd90cb54a0bd661b89c",
+            "file": "src/app/modules/receptionist/pages/home/home.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-home",
+            "styleUrls": [
+                "./home.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./home.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./home.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"container  mt-3\">\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <h1>Dashboard</h1>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <div class=\"card-deck\">\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h4 class=\"card-title\">2</h4>\n                        <p class=\"card-text\">Citas completadas</p>\n                    </div>\n                </div>\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h4 class=\"card-title\">11</h4>\n                        <p class=\"card-text\">citas pendientes</p>\n                    </div>\n                </div>\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h4 class=\"card-title\">2</h4>\n                        <p class=\"card-text\">citas canceladas</p>\n                    </div>\n                </div>\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <h4 class=\"card-title\">15</h4>\n                        <p class=\"card-text\">Citas totales</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-f5465d494de275ef43a36b2fa5f0dbd3",
+            "file": "src/app/auth/pages/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-login",
+            "styleUrls": [
+                "./login.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "errorMessage",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "isSubmitted",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "loginForm",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "initializeForm",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21
+                },
+                {
+                    "name": "submit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';\nimport { Router } from '@angular/router';\n\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.scss']\n})\nexport class LoginComponent implements OnInit {\n  isSubmitted: boolean;\n  loginForm: FormGroup;\n  errorMessage: string;\n  //alert = AlertType.danger;\n  constructor(\n   // private authService: AuthService,\n    private formBuilder: FormBuilder,\n   // private sessionService: SessionService,\n    private router: Router) { }\n  get lForm() { return this.loginForm.controls; }\n  ngOnInit(): void {\n    this.initializeForm();\n  }\n  initializeForm(): void {\n    this.loginForm = this.formBuilder.group({\n      email: new FormControl(null, [Validators.required, Validators.email]),\n      password: new FormControl(null, [Validators.required]),\n      rememberMe: new FormControl(false)\n    });\n  }\n\n  submit(): void {\n    this.router.navigate(['1']);\n    //this.isSubmitted = true;\n    this.errorMessage = null;\n    if (this.loginForm.valid) {\n      \n      // this.authService.postLogin(this.loginForm.value).subscribe(data => {\n      //   if (data.isSuccess) {\n      //     this.sessionService.setSession(data.model);\n      //     const newRoute = data.model.user.role == 'consumer'? '' : data.model.user.role;\n      //     this.router.navigate(['/'+newRoute]);\n      //   }\n      //   else {\n      //     this.errorMessage = data.message;\n      //   }\n      // }, error => {\n      //   this.errorMessage = new ReturnErrorModel(error).message;\n      // });\n\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".login-page{\n    height: 100vh;\n    .card-form{\n      width: 60%;\n    }\n  }\n  ",
+                    "styleUrl": "./login.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder"
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router"
+                    }
+                ],
+                "line": 13,
+                "jsdoctags": [
+                    {
+                        "name": "formBuilder",
+                        "type": "FormBuilder",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "accessors": {
+                "lForm": {
+                    "name": "lForm",
+                    "getSignature": {
+                        "name": "lForm",
+                        "type": "",
+                        "returnType": "",
+                        "line": 20
+                    }
+                }
+            },
+            "templateData": "<div class=\"container login-page\">\n    <div class=\"row\">\n      <div class=\"col-12 d-flex justify-content-center\">\n        <div class=\"card card-form mt-5\">\n          <div class=\"card-header bg-white border-0 d-flex justify-content-center\">\n            <h1>Login</h1>\n          </div>\n          <div class=\"card-body\">\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"submit()\" class=\"form\">\n              <div class=\"form-group\">\n                <label for=\"emailinp\">Email</label>\n                <input id=\"emailinp\" name=\"emailinp\" placeholder=\"Email address\" type=\"text\"  class=\"form-control\" formControlName=\"email\" [ngClass]=\"{'is-invalid': isSubmitted && lForm.email.errors}\" autofocus>\n                <div *ngIf=\"isSubmitted && lForm.email.errors\" class=\"invalid-feedback\">\n                  <span *ngIf=\"lForm.email.errors.required\">Email is required</span>\n                  <span *ngIf=\"lForm.email.errors.email\">Incorrect email format</span>\n                </div>\n              </div>\n              <div class=\"form-group\">\n                <label for=\"passwordInp\">Password</label>\n                <input id=\"passwordInp\" name=\"passwordInp\" placeholder=\"Password\" type=\"password\" class=\"form-control\" formControlName=\"password\" [ngClass]=\"{'is-invalid': isSubmitted && lForm.password.errors}\">\n                <div *ngIf=\"isSubmitted && lForm.password.errors\" class=\"invalid-feedback\">\n                  <span *ngIf=\"lForm.password.errors.required\">Password is required</span>\n                </div>\n              </div>\n              <div class=\"form-group form-check\">\n                <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\" formControlName=\"rememberMe\">\n                <label class=\"form-check-label\" for=\"exampleCheck1\">Remember Me</label>\n              </div>\n              <div class=\"form-group\">\n                <!-- <app-alert-message *ngIf=\"errorMessage\" [message]=\"errorMessage\" [type]=\"alert\"></app-alert-message> -->\n              </div>\n              <div class=\"form-group d-flex justify-content-center mt-5\">\n                <button name=\"submit\" type=\"submit\" class=\"btn btn-primary w-75 \">Login</button>\n              </div>\n            </form>\n          </div>\n          <div class=\"card-footer d-flex justify-content-between bg-white border-0\">\n            <a href=\"#\" [routerLink]=\"['/auth/reset-password']\" routerLinkActive=\"router-link-active\" >Forgot Password?</a>\n            <a href=\"#\" [routerLink]=\"['/auth/sign-up']\" routerLinkActive=\"router-link-active\" >Sign Up</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  "
+        },
+        {
+            "name": "NavbarComponent",
+            "id": "component-NavbarComponent-0a72e9c09d5378dca94a2b555246cf7f",
+            "file": "src/app/shared/components/layout/navbar/navbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-navbar",
+            "styleUrls": [
+                "./navbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./navbar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "openSidebar",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "app",
+                    "defaultValue": "GlobalConstants.App",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "icons",
+                    "defaultValue": "{\n    faBars,\n    faCart: faShoppingCart,\n    faUser: faUserCircle\n  }",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "isOpenedSiebar",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "session",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "logout",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27
+                },
+                {
+                    "name": "openSideBar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { GlobalConstants } from 'src/app/common/global-constants';\nimport { faBars, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';\n\n@Component({\n  selector: 'app-navbar',\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss']\n})\nexport class NavbarComponent implements OnInit {\n  app = GlobalConstants.App;\n  private isOpenedSiebar = false;\n  session\n  icons = {\n    faBars,\n    faCart: faShoppingCart,\n    faUser: faUserCircle\n  };\n\n  @Output()\n  openSidebar = new EventEmitter<boolean>();\n // session: Session;\n  // constructor(private sessionService: SessionService) {\n  //   this.sessionService.getSession().subscribe(session => this.session = session);\n  // }\n\n  ngOnInit(): void {\n    this.openSidebar.emit(this.isOpenedSiebar);\n\n  }\n  openSideBar(): void {\n    this.isOpenedSiebar = !this.isOpenedSiebar;\n    this.openSidebar.emit(this.isOpenedSiebar);\n  }\n  logout(): void {\n  //  this.sessionService.deleteSession();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".commerce-bar {\n    display: flex;\n    justify-content: space-between;\n\n    .nav-search {\n        margin: 0 18px;\n        width: 100%;\n    }\n    .navbar-nav {\n        // width: 20%;\n        flex-direction: row;\n        justify-content: end;\n    }\n}\n",
+                    "styleUrl": "./navbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<nav class=\"navbar navbar-expand-lg navbar-light bg-light commerce-bar\">\n    <a class=\"navbar-brand m-0\" href=\"#\" appStopPropagation (click)=\"openSideBar()\">\n      <fa-icon [icon]=\"icons.faBars\"></fa-icon>\n      <!-- {{app.name}} -->\n      mobile-size-view-name\n    </a>\n    <div class=\"nav-fill\">\n      <div class=\"nav-search\">\n        <!-- <app-searcher></app-searcher> -->\n      </div>\n    </div>\n  \n    <ul class=\"navbar-nav option-bar\">\n      <li class=\"nav-item\" ngbDropdown display=\"dynamic\">\n        <a class=\"nav-link\" href=\"#\" ngbDropdownToggle appStopPropagation>\n          <span *ngIf=\"session\">{{session.user.fullName}}</span>\n          <fa-icon [icon]=\"icons.faUser\" *ngIf=\"!session\"></fa-icon>\n        </a>\n        <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\n          <div *ngIf=\"!session\">\n            <a href=\"\" appStopPropagation ngbDropdownItem [routerLink]=\"['/auth']\" routerLinkActive=\"router-link-active\">Login</a>\n          </div>\n          <div *ngIf=\"session\">\n            <a href=\"\" appStopPropagation ngbDropdownItem [routerLink]=\"['/']\">Account</a>\n            <a href=\"\" appStopPropagation ngbDropdownItem [routerLink]=\"['/']\">Option 2</a>\n            <a href=\"\" appStopPropagation ngbDropdownItem [routerLink]=\"['/']\">Option 3</a>\n            <a href=\"\" appStopPropagation ngbDropdownItem (click)=\"logout()\">Log out</a>\n          </div>\n        </div>\n      </li>\n    </ul>\n  </nav>"
+        },
+        {
+            "name": "PageComponent",
+            "id": "component-PageComponent-cca1a8911321fa17756ce90c90de65cc",
+            "file": "src/stories/page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-page",
+            "styleUrls": [
+                "./page.css"
+            ],
+            "styles": [],
+            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://www.learnstorybook.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Learn Storybook\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\">\n          docs\n        </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "user",
+                    "defaultValue": "null",
+                    "line": 66,
+                    "type": "unknown"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onCreateAccount",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 75,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onLogin",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 69,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onLogout",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "line": 72,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://www.learnstorybook.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Learn Storybook\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\">\n          docs\n        </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nh2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\np {\n  margin: 1em 0;\n}\n\na {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nli {\n  margin-bottom: 8px;\n}\n\n.tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\n.tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n.tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\n.tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
+                    "styleUrl": "./page.css"
+                }
+            ],
+            "stylesData": ""
+        },
+        {
+            "name": "PatientsComponent",
+            "id": "component-PatientsComponent-576b4dcc651201ebeefff1bc34eacd36",
+            "file": "src/app/modules/receptionist/pages/patients/patients.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-patients",
+            "styleUrls": [
+                "./patients.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./patients.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "icons",
+                    "defaultValue": "{\n    faEllipsisH\n  }",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "page",
+                    "defaultValue": "1",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { faEllipsisH} from '@fortawesome/free-solid-svg-icons';\n\n@Component({\n  selector: 'app-patients',\n  templateUrl: './patients.component.html',\n  styleUrls: ['./patients.component.scss']\n})\nexport class PatientsComponent implements OnInit {\n  icons = {\n    faEllipsisH\n  }\n  page = 1;\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".dropdown-toggle::after {\n    display:none;\n}",
+                    "styleUrl": "./patients.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 13
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"container  mt-3\">\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <h1>Pacientes</h1>\n        </div>\n    </div>\n    <div class=\"row mt-3\">\n        <div class=\"col-12 d-flex justify-content-between align-items-center\">\n            <input type=\"text\" class=\"form-control w-50\" name=\"\" id=\"\" aria-describedby=\"helpId\" placeholder=\"Buscar\">\n            <button type=\"button\" class=\"btn btn-primary\">Nuevo</button>\n        </div>\n    </div>\n    <div class=\"row mt-3\">\n        <div class=\"col-12\">\n            <table class=\"table\">\n                <thead>\n                    <tr class=\"row\">\n                        <th class=\"col-4\">Nombre</th>\n                        <th class=\"col-1\">Edad</th>\n                        <th class=\"col-3\">Email</th>\n                        <th class=\"col-3\">Telefono</th>\n                        <th class=\"col-1\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr class=\"row\">\n                        <td class=\"col-4\">Pepe Pecas</td>\n                        <td class=\"col-1\">23</td>\n                        <td class=\"col-3\">alguien@example.com</td>\n                        <td class=\"col-3\">614-789-4512</td>\n                        <td class=\"col-1\">\n\n                            <div ngbDropdown class=\"d-inline-block\">\n                                <button class=\"btn m-0 p-0\" id=\"dropdownBasic1\" ngbDropdownToggle>\n                                    <fa-icon [icon]=\"icons.faEllipsisH\"></fa-icon>\n                                </button>\n                                <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\n                                    <button ngbDropdownItem>Action - 1</button>\n                                    <button ngbDropdownItem>Another Action</button>\n                                    <button ngbDropdownItem>Something else is here</button>\n                                </div>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n            <ngb-pagination [collectionSize]=\"50\" [(page)]=\"page\" [maxSize]=\"15\"></ngb-pagination>\n        </div>\n    </div>\n</div>"
+        },
+        {
+            "name": "ReceptionistComponent",
+            "id": "component-ReceptionistComponent-09d479dddf1d5b0445efe0d4414bbbee",
+            "file": "src/app/modules/receptionist/receptionist.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-receptionist",
+            "styleUrls": [
+                "./receptionist.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./receptionist.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "sidebarOptions",
+                    "defaultValue": "{\n    isOpenedSidebar: true,\n    closeOnClickOutside: false,\n    mode: '\"over\"',\n    showBackdrop: false\n  }",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "closeBar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18
+                },
+                {
+                    "name": "openSidebar",
+                    "args": [
+                        {
+                            "name": "$event",
+                            "type": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "jsdoctags": [
+                        {
+                            "name": "$event",
+                            "type": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-receptionist',\n  templateUrl: './receptionist.component.html',\n  styleUrls: ['./receptionist.component.scss']\n})\nexport class ReceptionistComponent implements OnInit {\n\n  constructor() { }\n  sidebarOptions = {\n    isOpenedSidebar: true,\n    closeOnClickOutside: false,\n    mode: '\"over\"',\n    showBackdrop: false\n  };\n\n  ngOnInit(): void {\n  }\n  openSidebar($event): void {\n    // this.sidebarOptions.isOpenedSidebar = !this.sidebarOptions.isOpenedSidebar;\n  }\n  closeBar(): void {\n    // this.sidebarOptions.isOpenedSidebar = false;\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./receptionist.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"main-container\">\n    <ng-sidebar-container>\n        <ng-sidebar #sidebar [sidebarClass]=\"'sidebar'\" [(opened)]=\"sidebarOptions.isOpenedSidebar\"\n            [mode]=\"'push'\" [closeOnClickOutside]=\"sidebarOptions.closeOnClickOutside\"\n            [showBackdrop]=\"sidebarOptions.showBackdrop\" (onCloseStart)=\"closeBar()\">\n            <app-sidebar-menu></app-sidebar-menu>\n        </ng-sidebar>\n        <div ng-sidebar-content class=\"sidebar-content\">\n            <app-navbar (openSidebar)=\"openSidebar($event)\"></app-navbar>\n            <router-outlet></router-outlet>\n        </div>\n    </ng-sidebar-container>\n</div>\n\n"
+        },
+        {
+            "name": "SidebarMenuComponent",
+            "id": "component-SidebarMenuComponent-598ba6b309a888bdcc4e917edfbbf142",
+            "file": "src/app/modules/receptionist/components/sidebar-menu/sidebar-menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-sidebar-menu",
+            "styleUrls": [
+                "./sidebar-menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./sidebar-menu.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "app",
+                    "defaultValue": "GlobalConstants.App",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "icons",
+                    "defaultValue": "{\n    faImage,\n  }",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { faImage } from '@fortawesome/free-solid-svg-icons';\nimport { GlobalConstants } from 'src/app/common/global-constants';\n\n@Component({\n  selector: 'app-sidebar-menu',\n  templateUrl: './sidebar-menu.component.html',\n  styleUrls: ['./sidebar-menu.component.scss']\n})\nexport class SidebarMenuComponent implements OnInit {\n  icons = {\n    faImage,\n  };\n  app = GlobalConstants.App;\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".sidebar-content{\n    height: 100vh;\n    .app{\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 56px;\n        background-color: red;\n        .app-title{\n            margin: 0px 0px 0px 8px;//trouble\n        }\n    }\n    .content{\n        border: 0px;\n        margin-top: 3rem;\n        \n        .list-group-item{\n            border:0px;\n            background-color: transparent;\n        }\n        .active{\n            color: green;\n        }\n    }\n}\n\n",
+                    "styleUrl": "./sidebar-menu.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 14
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"d-flex flex-column sidebar-content\">\n    <div class=\"app\">\n        <fa-icon [icon]=\"icons.faImage\"></fa-icon>\n        <p class=\"app-title\">{{app.name}}</p>\n    </div>\n    <ul class=\"list-group content\">\n        <a href=\"#\" appStopPropagation [routerLink]=\"['dashboard']\" routerLinkActive=\"active\"  class=\"list-group-item list-group-item-action\">Dashboard</a>\n        <a href=\"#\" appStopPropagation [routerLink]=\"['pacientes']\" routerLinkActive=\"active\" class=\"list-group-item list-group-item-action\">Pacientes</a>\n        <a href=\"#\" appStopPropagation [routerLink]=\"['doctores']\" routerLinkActive=\"active\" class=\"list-group-item list-group-item-action\">Doctores</a>\n        <a href=\"#\" appStopPropagation [routerLink]=\"['citas']\" routerLinkActive=\"active\" class=\"list-group-item list-group-item-action\">Citas</a>\n        <a href=\"#\" appStopPropagation [routerLink]=\"['dashboard']\" routerLinkActive=\"active\" class=\"list-group-item list-group-item-action\">Ayuda</a>\n    </ul>\n</div>"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "CoreModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AuthModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "LoginComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AuthRoutingModule"
+                        },
+                        {
+                            "name": "SharedModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AuthRoutingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CoreModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DoctorModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DoctorComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "DoctorRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DoctorRoutingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ReceptionistModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppointmentsComponent"
+                        },
+                        {
+                            "name": "DoctorsComponent"
+                        },
+                        {
+                            "name": "HomeComponent"
+                        },
+                        {
+                            "name": "PatientsComponent"
+                        },
+                        {
+                            "name": "ReceptionistComponent"
+                        },
+                        {
+                            "name": "SidebarMenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ReceptionistRoutingModule"
+                        },
+                        {
+                            "name": "SharedModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ReceptionistRoutingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SharedModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "NavbarComponent"
+                        },
+                        {
+                            "name": "StopPropagationDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "NavbarComponent"
+                        },
+                        {
+                            "name": "StopPropagationDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedIn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedIn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "type": "literal type"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/receptionist/pages/home/home.stories.ts",
+                "type": "Story<HomeComponent>",
+                "defaultValue": "(args) => ({\n  component: HomeComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "YourStory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/receptionist/pages/home/home.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [
+            {
+                "name": "AppointmentStatus",
+                "childs": [
+                    {
+                        "name": "pending",
+                        "value": "1"
+                    },
+                    {
+                        "name": "inProgress",
+                        "value": "2"
+                    },
+                    {
+                        "name": "cancelled",
+                        "value": "3"
+                    },
+                    {
+                        "name": "complete",
+                        "value": "4"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "description": "",
+                "file": "src/app/core/enums/AppointmentStatus.enum.ts"
+            },
+            {
+                "name": "UserType",
+                "childs": [
+                    {
+                        "name": "Receptionist",
+                        "value": "1"
+                    },
+                    {
+                        "name": "Doctor",
+                        "value": "2"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "description": "",
+                "file": "src/app/core/enums/UserType.enum.ts"
+            }
+        ],
+        "groupedVariables": {
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "type": "literal type"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "type": "Story<Button>",
+                    "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "type": "Story<Header>",
+                    "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Page.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "type": "Story<Page>",
+                    "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+                }
+            ],
+            "src/app/modules/receptionist/pages/home/home.stories.ts": [
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/receptionist/pages/home/home.stories.ts",
+                    "type": "Story<HomeComponent>",
+                    "defaultValue": "(args) => ({\n  component: HomeComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "YourStory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/receptionist/pages/home/home.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {
+            "src/app/core/enums/AppointmentStatus.enum.ts": [
+                {
+                    "name": "AppointmentStatus",
+                    "childs": [
+                        {
+                            "name": "pending",
+                            "value": "1"
+                        },
+                        {
+                            "name": "inProgress",
+                            "value": "2"
+                        },
+                        {
+                            "name": "cancelled",
+                            "value": "3"
+                        },
+                        {
+                            "name": "complete",
+                            "value": "4"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "description": "",
+                    "file": "src/app/core/enums/AppointmentStatus.enum.ts"
+                }
+            ],
+            "src/app/core/enums/UserType.enum.ts": [
+                {
+                    "name": "UserType",
+                    "childs": [
+                        {
+                            "name": "Receptionist",
+                            "value": "1"
+                        },
+                        {
+                            "name": "Doctor",
+                            "value": "2"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "description": "",
+                    "file": "src/app/core/enums/UserType.enum.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {}
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "loadChildren": "./auth/auth.module#AuthModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/auth/auth-routing.module.ts",
+                                        "module": "AuthRoutingModule",
+                                        "children": [
+                                            {
+                                                "path": "login",
+                                                "component": "LoginComponent"
+                                            },
+                                            {
+                                                "path": "",
+                                                "redirectTo": "login",
+                                                "pathMatch": "full"
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
+                                "module": "AuthModule"
+                            }
+                        ]
+                    },
+                    {
+                        "path": "UserType.Receptionist.toString()",
+                        "loadChildren": "./modules/receptionist/receptionist.module#ReceptionistModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/modules/receptionist/receptionist-routing.module.ts",
+                                        "module": "ReceptionistRoutingModule",
+                                        "children": [
+                                            {
+                                                "path": "",
+                                                "component": "ReceptionistComponent",
+                                                "children": [
+                                                    {
+                                                        "path": "dashboard",
+                                                        "component": "HomeComponent"
+                                                    },
+                                                    {
+                                                        "path": "pacientes",
+                                                        "component": "PatientsComponent"
+                                                    },
+                                                    {
+                                                        "path": "doctores",
+                                                        "component": "DoctorsComponent"
+                                                    },
+                                                    {
+                                                        "path": "citas",
+                                                        "component": "AppointmentsComponent"
+                                                    },
+                                                    {
+                                                        "path": "",
+                                                        "redirectTo": "dashboard",
+                                                        "pathMatch": "full"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
+                                "module": "ReceptionistModule"
+                            }
+                        ]
+                    },
+                    {
+                        "path": "UserType.Doctor.toString()",
+                        "loadChildren": "./modules/doctor/doctor.module#DoctorModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/modules/doctor/doctor-routing.module.ts",
+                                        "module": "DoctorRoutingModule",
+                                        "children": [
+                                            {
+                                                "path": "",
+                                                "component": "DoctorComponent"
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
+                                "module": "DoctorModule"
+                            }
+                        ]
+                    },
+                    {
+                        "path": "",
+                        "redirectTo": "",
+                        "pathMatch": "full"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 1,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "e2e/src/app.po.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "AppPage",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/pages/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/common/global-constants.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "GlobalConstants",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/db/Appointment.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Appointment",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/db/Doctor.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Doctor",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/db/Office.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Office",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/db/Patient.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Patient",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/db/Receptionist.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Receptionist",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/db/User.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "User",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/responses/return-error.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ReturnErrorModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/responses/return-list.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ReturnListModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/responses/return.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ReturnModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/models/searchCriteria/BaseSearchCriteria.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "BaseSearchCriteria",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/doctor/doctor.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DoctorComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/components/sidebar-menu/sidebar-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SidebarMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/pages/appointments/appointments.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppointmentsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/pages/doctors/doctors.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DoctorsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/pages/home/home.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/pages/home/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/pages/home/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "YourStory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/pages/patients/patients.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PatientsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/receptionist/receptionist.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ReceptionistComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/components/layout/navbar/navbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/directives/stop-propagation.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "StopPropagationDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedIn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoggedOut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/stories/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

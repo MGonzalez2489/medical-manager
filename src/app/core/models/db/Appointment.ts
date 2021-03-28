@@ -1,3 +1,4 @@
+import { AppointmentStatus } from "../../enums";
 import { Doctor } from "./Doctor";
 import { Patient } from "./Patient";
 
