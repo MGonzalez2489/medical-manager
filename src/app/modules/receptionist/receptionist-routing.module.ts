@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppointmentsComponent } from './pages/appointments/appointments.component';
-import { DoctorsComponent } from './pages/doctors/doctors.component';
+import { AppointmentListComponent } from './pages/appointments/appointment-list/appointment-list.component';
+import { DoctorListComponent } from './pages/doctors/doctor-list/doctor-list.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PatientsComponent } from './pages/patients/patients.component';
+import { PatientFormComponent } from './pages/patients/patient-form/patient-form.component';
+import { PatientListComponent } from './pages/patients/patient-list/patients-list.component';
 import { ReceptionistComponent } from './receptionist.component';
 
 const routes: Routes = [
@@ -12,9 +13,13 @@ const routes: Routes = [
     component: ReceptionistComponent,
     children: [
       { path: 'dashboard', component: HomeComponent },
-      { path: 'pacientes', component: PatientsComponent },
-      { path: 'doctores', component: DoctorsComponent },
-      { path: 'citas', component: AppointmentsComponent },
+      { path: 'pacientes', component: PatientListComponent },
+      { path: 'pacientes/nuevo', component: PatientFormComponent },
+      { path: 'pacientes/:guid', component: PatientListComponent },
+      { path: 'doctores', component: DoctorListComponent },
+      { path: 'doctores/nuevo', component: DoctorListComponent },
+      { path: 'doctores/:guid', component: DoctorListComponent },
+      { path: 'citas', component: AppointmentListComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   }

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-patients',
-  templateUrl: './patients.component.html',
-  styleUrls: ['./patients.component.scss']
+  selector: 'app-patient-list',
+  templateUrl: './patients-list.component.html',
+  styleUrls: ['./patients-list.component.scss']
 })
-export class PatientsComponent implements OnInit {
+export class PatientListComponent implements OnInit {
   icons = {
     faEllipsisH
   }
