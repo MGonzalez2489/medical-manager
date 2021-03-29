@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-doctor-list',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doctor-list.component.scss']
 })
 export class DoctorListComponent implements OnInit {
-
+  icons = {
+    faEllipsisH
+  }
+  page=1;
   constructor() { }
 
   ngOnInit(): void {

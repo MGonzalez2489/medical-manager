@@ -7,7 +7,8 @@
     <div class="row mt-3">
         <div class="col-12 d-flex justify-content-between align-items-center">
             <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId" placeholder="Buscar">
-            <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['nuevo']" routerLinkActive="router-link-active" >Nuevo</a>
+            <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['nuevo']"
+                routerLinkActive="router-link-active">Nuevo</a>
         </div>
     </div>
     <div class="row mt-3">
@@ -18,7 +19,7 @@
                         <th class="col-4">Nombre</th>
                         <th class="col-1">Edad</th>
                         <th class="col-3">Email</th>
-                        <th class="col-3">Telefono</th>
+                        <th class="col-3">Teléfono</th>
                         <th class="col-1"></th>
                     </tr>
                 </thead>
@@ -29,7 +30,6 @@
                         <td class="col-3">alguien@example.com</td>
                         <td class="col-3">614-789-4512</td>
                         <td class="col-1">
-
                             <div ngbDropdown class="d-inline-block">
                                 <button class="btn m-0 p-0" id="dropdownBasic1" ngbDropdownToggle>
                                     <fa-icon [icon]="icons.faEllipsisH"></fa-icon>
@@ -44,7 +44,9 @@
                     </tr>
                 </tbody>
             </table>
-            <ngb-pagination [collectionSize]="50" [(page)]="page" [maxSize]="15"></ngb-pagination>
+            <div class="d-flex justify-content-end">
+                <ngb-pagination [collectionSize]="50" [(page)]="page" [maxSize]="15"></ngb-pagination>
+            </div>
         </div>
     </div>
 </div>
