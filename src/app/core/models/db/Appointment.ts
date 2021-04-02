@@ -7,6 +7,6 @@ export class Appointment extends DbModel {
   status: AppointmentStatus;
   doctor: Doctor;
   patient: Patient;
-  date: string;
-  durationAprox: number; //minutes
+  startDate: string;
+  duration: number; //minutes
 }

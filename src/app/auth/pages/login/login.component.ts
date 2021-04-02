@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Session } from 'src/app/core/models';
+import { ReturnErrorModel, ReturnModel } from 'src/app/core/models/responses';
+import { SessionService } from 'src/app/core/services';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +17,9 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
   //alert = AlertType.danger;
   constructor(
-   // private authService: AuthService,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
-   // private sessionService: SessionService,
+    private sessionService: SessionService,
     private router: Router) { }
   get lForm() { return this.loginForm.controls; }
   ngOnInit(): void {
@@ -30,24 +34,20 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    this.router.navigate(['1']);
-    //this.isSubmitted = true;
+    this.isSubmitted = true;
     this.errorMessage = null;
     if (this.loginForm.valid) {
-      
-      // this.authService.postLogin(this.loginForm.value).subscribe(data => {
-      //   if (data.isSuccess) {
-      //     this.sessionService.setSession(data.model);
-      //     const newRoute = data.model.user.role == 'consumer'? '' : data.model.user.role;
-      //     this.router.navigate(['/'+newRoute]);
-      //   }
-      //   else {
-      //     this.errorMessage = data.message;
-      //   }
-      // }, error => {
-      //   this.errorMessage = new ReturnErrorModel(error).message;
-      // });
-
+      this.authService.postLogin(this.loginForm.value).subscribe((data: ReturnModel<Session>) => {
+        if (data.isSuccess) {
+          this.sessionService.setSession(data.model);
+          this.router.navigate(['/' + data.model.user.userType]);
+        }
+        else {
+          this.errorMessage = data.message;
+        }
+      }, error => {
+        this.errorMessage = new ReturnErrorModel(error).message;
+      });
     }
   }
 }

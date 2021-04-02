@@ -6,12 +6,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
-
-
+import { AgePipe, PhonePipe } from './pipes';
 
 
 @NgModule({
-  declarations: [NavbarComponent, StopPropagationDirective],
+  declarations: [NavbarComponent, StopPropagationDirective, PhonePipe, AgePipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -27,7 +26,9 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     FontAwesomeModule,
     RouterModule,
     NgbModule,
-    StopPropagationDirective
+    StopPropagationDirective,
+    PhonePipe,
+    AgePipe
   ]
 })
 export class SharedModule { }
