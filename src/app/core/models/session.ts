@@ -1,4 +1,4 @@
-import { User } from "./db/User";
+import { User } from './db/User';
 
 export class Session {
     token: string;

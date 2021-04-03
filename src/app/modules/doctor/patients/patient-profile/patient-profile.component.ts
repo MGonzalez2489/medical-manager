@@ -23,14 +23,14 @@ export class PatientProfileComponent implements OnInit {
     this.patientService.getPatientByGuid(currentUser.guid, guid).subscribe(data => {
       if (data.isSuccess) {
         this.patient = data.model
-        console.info("PACIENTE",this.patient);
+        console.info('PACIENTE',this.patient);
       }
       else {
-        console.error("ALGO SALIO MAL", data.message);
+        console.error('ALGO SALIO MAL', data.message);
       }
     },
       error => {
-        console.error("ALGO SALIO MAL", error);
+        console.error('ALGO SALIO MAL', error);
       })
   }
 

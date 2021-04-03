@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Patient } from 'src/app/core/models/db';
-import {faCalendar} from '@fortawesome/free-solid-svg-icons'
+import {faCalendar} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -12,15 +12,16 @@ import {faCalendar} from '@fortawesome/free-solid-svg-icons'
 export class PatientFormComponent implements OnInit {
   patient: Patient;
   patientForm: FormGroup;
-  isSubmitted:boolean;
-  icons ={
+  isSubmitted: boolean;
+  icons = {
     faCalendar
-  }
+  };
   constructor(private formBuilder: FormBuilder) { }
   get pForm() { return this.patientForm.controls; }
   ngOnInit(): void {
     this.initializeForm();
   }
+
   initializeForm(): void {
     this.patientForm = this.formBuilder.group({
       firstName: new FormControl(null, [Validators.required]),
@@ -31,6 +32,7 @@ export class PatientFormComponent implements OnInit {
       gender: new FormControl(null, [Validators.required]),
     });
   }
+
   submit(): void {
     this.isSubmitted = true;
   }

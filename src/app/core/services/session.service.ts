@@ -14,7 +14,7 @@ export class SessionService {
   private currentSession: BehaviorSubject<Session> = new BehaviorSubject<Session>(null);
   private SESSION_KEY = 'session';
 
-  constructor() { 
+  constructor() {
     this.getSession();
   }
 

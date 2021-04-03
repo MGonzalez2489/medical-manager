@@ -7,7 +7,7 @@ export class PhonePipe implements PipeTransform {
 
   transform(tel) {
     if (tel) {
-      var value = tel.toString().trim().replace(/^\+/, "");
+      var value = tel.toString().trim().replace(/^\+/, '');
 
       if (value.match(/[^0-9]/)) {
         return tel;
@@ -39,12 +39,12 @@ export class PhonePipe implements PipeTransform {
       }
 
       if (country == 1) {
-        country = "";
+        country = '';
       }
 
-      number = number.slice(0, 3) + "-" + number.slice(3);
+      number = number.slice(0, 3) + '-' + number.slice(3);
 
-      return (country + " (" + city + ") " + number).trim();
+      return (country + ' (' + city + ') ' + number).trim();
     }
     else{
       return '';

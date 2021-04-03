@@ -9,7 +9,7 @@ import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 export class AppointmentListComponent implements OnInit {
   icons = {
     faEllipsisH
-  }
+  };
   page = 1;
   constructor() { }
 

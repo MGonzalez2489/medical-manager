@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   isSubmitted: boolean;
   loginForm: FormGroup;
   errorMessage: string;
-  //alert = AlertType.danger;
+  // alert = AlertType.danger;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,

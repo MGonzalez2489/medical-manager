@@ -1,6 +1,6 @@
 export class BaseSearchCriteria {
     keyword: string;
-    guid:string;
+    guid: string;
     page: number;      // number of current page
     perPage: number;  // count per page
     totalRecords: number; // total count
