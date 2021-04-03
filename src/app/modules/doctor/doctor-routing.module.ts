@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DoctorComponent } from './doctor.component';
-import { AppointmentListComponent } from './pages/appointments/appointment-list/appointment-list.component';
-import { HomeComponent } from './pages/home/home.component';
-import { PatientFormComponent } from './pages/patients/patient-form/patient-form.component';
-import { PatientListComponent } from './pages/patients/patient-list/patients-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DoctorComponent,
     children: [
-      { path: 'dashboard', component: HomeComponent },
-      { path: 'pacientes', component: PatientListComponent },
-      { path: 'pacientes/nuevo', component: PatientFormComponent },
-      { path: 'pacientes/:guid', component: PatientFormComponent },
-      { path: 'citas', component: AppointmentListComponent },
+      { path: 'dashboard', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+      { path: 'pacientes', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) },
+      { path: 'citas', loadChildren: () => import('./appointments/appointments.module').then(m => m.AppointmentsModule) },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   }

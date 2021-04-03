@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { AgePipe, PhonePipe } from './pipes';
+import { GenderPipe } from './pipes/gender.pipe';
 
 
 @NgModule({
-  declarations: [NavbarComponent, StopPropagationDirective, PhonePipe, AgePipe],
+  declarations: [NavbarComponent, StopPropagationDirective, PhonePipe, AgePipe, GenderPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -19,7 +20,7 @@ import { AgePipe, PhonePipe } from './pipes';
     RouterModule,
     NgbModule
   ],
-  exports:[
+  exports: [
     ReactiveFormsModule,
     FormsModule,
     NavbarComponent,
@@ -28,7 +29,8 @@ import { AgePipe, PhonePipe } from './pipes';
     NgbModule,
     StopPropagationDirective,
     PhonePipe,
-    AgePipe
+    AgePipe,
+    GenderPipe
   ]
 })
 export class SharedModule { }

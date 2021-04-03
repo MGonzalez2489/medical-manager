@@ -1,0 +1,53 @@
+<div class="container page">
+    <div class="row">
+        <div class="col-12">
+            <h1>Pacientes</h1>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId" placeholder="Buscar" [(ngModel)]="searchCriteria.keyword" (ngModelChange)="getPatients()">
+            <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['nuevo']"
+                routerLinkActive="router-link-active">Nuevo</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr class="row">
+                        <th class="col-4">Nombre</th>
+                        <th class="col-1">Edad</th>
+                        <th class="col-3">Email</th>
+                        <th class="col-3">Teléfono</th>
+                        <th class="col-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row" *ngFor="let patient of patients">
+                        <td class="col-4">{{patient.firstName + ' ' + patient.lastName}}</td>
+                        <td class="col-1">{{patient.birthday | age}}</td>
+                        <td class="col-3">{{patient.email}}</td>
+                        <td class="col-3">{{patient.phone | phone}}</td>
+                        <td class="col-1">
+                            <div ngbDropdown class="d-inline-block">
+                                <button class="btn m-0 p-0" id="dropdownBasic1" ngbDropdownToggle>
+                                    <fa-icon [icon]="icons.faEllipsisH"></fa-icon>
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <a href="#" appStopPropagation [routerLink]="[patient.guid,'perfil']"
+                                        ngbDropdownItem>Perfil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end">
+                <ngb-pagination [collectionSize]="searchCriteria.totalRecords" [(page)]="searchCriteria.page"
+                    [maxSize]="searchCriteria.perPage" (pageChange)="getPatients()">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>
