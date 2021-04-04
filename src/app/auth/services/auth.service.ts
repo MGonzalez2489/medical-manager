@@ -13,6 +13,7 @@ export class AuthService {
   constructor(private requestService: RequestService) { }
 
   postLogin(login: { email: string, password: string, rememberMe: boolean }): Observable<ReturnModel<Session>> {
-    return this.requestService.post<Session>(`auth?email=${login.email}&password=${login.password}&rememberMe=${login.rememberMe}`, null);
+    //return this.requestService.post<Session>(`auth?email=${login.email}&password=${login.password}&rememberMe=${login.rememberMe}`, null);
+    return this.requestService.postWithModel<Session, {}>('auth', login);
   }
 }

@@ -13,14 +13,13 @@ export class PatientService {
   constructor(private requestService: RequestService) { }
 
   getPatientsByDoctor(searchCriteria: BaseSearchCriteria): Observable<ReturnListModel<Patient>> {
-    const url = `doctor/${searchCriteria.guid}/patient`;
-    return this.requestService.getListWithParams<Patient>(url, searchCriteria);
+    return this.requestService.getListWithParams<Patient>('patient', searchCriteria);
   }
-  getPatientByGuid(doctorGuid: string, patientGuid: string): Observable<ReturnModel<Patient>> {
-    const url = `doctor/${doctorGuid}/patient/${patientGuid}`;
-    return this.requestService.get<Patient>(url);
+  getPatientByGuid(patientGuid: string): Observable<ReturnModel<Patient>> {
+    return this.requestService.get<Patient>(`patient/${patientGuid}`);
+    
   }
-  postPatient(doctor: string, patient: Patient) {
-    return this.requestService.postWithModel(`doctor/${doctor}/patient/`, patient);
+  postPatient(patient: Patient) {
+    return this.requestService.postWithModel('patient', patient);
   }
 }

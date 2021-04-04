@@ -21,7 +21,7 @@ export class PatientFormComponent implements OnInit {
     faCalendar
   };
   genderList = new Array<KeyNameModel>();
-  constructor(private formBuilder: FormBuilder, private patientService: PatientService, private sessionService: SessionService) { }
+  constructor(private formBuilder: FormBuilder, private patientService: PatientService) { }
   get pForm() { return this.patientForm.controls; }
   ngOnInit(): void {
     this.genderList = EnumService.getGenderArray();
@@ -45,7 +45,7 @@ export class PatientFormComponent implements OnInit {
       const parser = new NgbDateCustomParserFormatter();
       var constForm = Object.assign(Object.create(this.patientForm.value), this.patientForm.value);
       constForm.birthday = parser.formatAPI(constForm.birthday);
-      this.patientService.postPatient(this.sessionService.getLoggedInUser().guid, constForm).subscribe(data => {
+      this.patientService.postPatient(constForm).subscribe(data => {
         console.log("DATA", data);
       })
     }

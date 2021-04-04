@@ -17,7 +17,7 @@ export class PatientListComponent implements OnInit {
   constructor(private patientService: PatientService, private sessionService: SessionService) { }
 
   ngOnInit(): void {
-    this.searchCriteria.guid = this.sessionService.getLoggedInUser().guid;
+   // this.searchCriteria.guid = this.sessionService.getLoggedInUser().guid;
     this.getPatients();
   }
   getPatients() {

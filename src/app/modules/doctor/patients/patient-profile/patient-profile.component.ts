@@ -19,8 +19,7 @@ export class PatientProfileComponent implements OnInit {
     this.getPatientByGuid(patientGuid);
   }
   getPatientByGuid(guid: string) {
-    const currentUser = this.sessionService.getLoggedInUser();
-    this.patientService.getPatientByGuid(currentUser.guid, guid).subscribe(data => {
+    this.patientService.getPatientByGuid(guid).subscribe(data => {
       if (data.isSuccess) {
         this.patient = data.model
         console.info('PACIENTE',this.patient);
