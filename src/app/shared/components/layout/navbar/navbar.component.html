@@ -13,7 +13,7 @@
     <ul class="navbar-nav option-bar">
       <li class="nav-item" ngbDropdown display="dynamic">
         <a class="nav-link" href="#" ngbDropdownToggle appStopPropagation>
-          <span *ngIf="session">{{session.user.fullName}}</span>
+          <span *ngIf="session">{{session.user.firstName + ' ' + session.user.lastName}}</span>
           <fa-icon [icon]="icons.faUser" *ngIf="!session"></fa-icon>
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">

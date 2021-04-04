@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Patient } from 'src/app/core/models/db';
-import {faCalendar} from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { EnumService, SessionService } from 'src/app/core/services';
+import { KeyNameModel } from 'src/app/core/models';
+import { NgbDateCustomParserFormatter } from 'src/app/shared/formaters';
+import { PatientService } from '../services/patient.service';
 
 
 @Component({
@@ -16,9 +20,11 @@ export class PatientFormComponent implements OnInit {
   icons = {
     faCalendar
   };
-  constructor(private formBuilder: FormBuilder) { }
+  genderList = new Array<KeyNameModel>();
+  constructor(private formBuilder: FormBuilder, private patientService: PatientService, private sessionService: SessionService) { }
   get pForm() { return this.patientForm.controls; }
   ngOnInit(): void {
+    this.genderList = EnumService.getGenderArray();
     this.initializeForm();
   }
 
@@ -29,12 +35,20 @@ export class PatientFormComponent implements OnInit {
       birthday: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       phone: new FormControl(null, [Validators.required]),
-      gender: new FormControl(null, [Validators.required]),
+      gender: new FormControl(this.genderList[0].name, [Validators.required]),
     });
   }
 
   submit(): void {
     this.isSubmitted = true;
+    if (this.patientForm.valid) {
+      const parser = new NgbDateCustomParserFormatter();
+      var constForm = Object.assign(Object.create(this.patientForm.value), this.patientForm.value);
+      constForm.birthday = parser.formatAPI(constForm.birthday);
+      this.patientService.postPatient(this.sessionService.getLoggedInUser().guid, constForm).subscribe(data => {
+        console.log("DATA", data);
+      })
+    }
   }
 
 }

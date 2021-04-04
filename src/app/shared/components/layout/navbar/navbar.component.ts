@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GlobalConstants } from 'src/app/common/global-constants';
 import { faBars, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { SessionService } from 'src/app/core/services';
+import { Session } from 'src/app/core/models';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,6 @@ import { faBars, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-sv
 export class NavbarComponent implements OnInit {
   app = GlobalConstants.App;
   private isOpenedSiebar = false;
-  session
   icons = {
     faBars,
     faCart: faShoppingCart,
@@ -19,10 +20,10 @@ export class NavbarComponent implements OnInit {
 
   @Output()
   openSidebar = new EventEmitter<boolean>();
- // session: Session;
-  // constructor(private sessionService: SessionService) {
-  //   this.sessionService.getSession().subscribe(session => this.session = session);
-  // }
+  session: Session;
+  constructor(private sessionService: SessionService) {
+    this.sessionService.getSession().subscribe(session => this.session = session);
+  }
 
   ngOnInit(): void {
     this.openSidebar.emit(this.isOpenedSiebar);
@@ -33,6 +34,6 @@ export class NavbarComponent implements OnInit {
     this.openSidebar.emit(this.isOpenedSiebar);
   }
   logout(): void {
-  //  this.sessionService.deleteSession();
+    this.sessionService.requestLogout();
   }
 }

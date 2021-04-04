@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Session } from '../models';
 import { User } from '../models/db/User';
+import { RequestService } from './request.service';
 
 
 @Injectable({
@@ -14,7 +16,7 @@ export class SessionService {
   private currentSession: BehaviorSubject<Session> = new BehaviorSubject<Session>(null);
   private SESSION_KEY = 'session';
 
-  constructor() {
+  constructor(private requestService: RequestService, private router: Router) {
     this.getSession();
   }
 
@@ -26,10 +28,14 @@ export class SessionService {
     this.currentSession.next(newSession);
     this.storeSession(newSession);
   }
+  initSession() {
+    localStorage.removeItem(this.SESSION_KEY);
+  }
   deleteSession(): void {
     this.currentSession.complete();
-    this.currentSession.unsubscribe();
+   // this.currentSession.unsubscribe();
     localStorage.removeItem(this.SESSION_KEY);
+    this.router.navigate(['/login']);
   }
   getSession(): Observable<Session> {
     if (!this.currentSession.value) {
@@ -41,7 +47,19 @@ export class SessionService {
     return this.currentSession.asObservable();
   }
 
-  getLoggedInUser(): User{
+  getLoggedInUser(): User {
     return this.currentSession.value.user;
+  }
+  getSessionToken(): string {
+    if (this.currentSession.value)
+      return this.currentSession.value.token;
+    else return null;
+  }
+  requestLogout() {
+    this.requestService.delete('auth').subscribe(data => {
+      if (data.isSuccess && data.model) {
+        this.deleteSession();
+      }
+    })
   }
 }

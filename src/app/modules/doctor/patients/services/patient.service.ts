@@ -20,4 +20,7 @@ export class PatientService {
     const url = `doctor/${doctorGuid}/patient/${patientGuid}`;
     return this.requestService.get<Patient>(url);
   }
+  postPatient(doctor: string, patient: Patient) {
+    return this.requestService.postWithModel(`doctor/${doctor}/patient/`, patient);
+  }
 }

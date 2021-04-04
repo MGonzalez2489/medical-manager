@@ -8,6 +8,10 @@ import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoadingSpinnerService } from './core/modules/loading-spinner/loading-spinner.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BusyHttpRequestInterceptor } from './core/interceptors/busy-http-request.interceptor';
+import { RequestInterceptor } from './core/interceptors/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CoreModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    LoadingSpinnerService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: BusyHttpRequestInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

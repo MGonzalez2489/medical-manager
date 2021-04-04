@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label for="gender">Género *</label>
                     <select id="gender" name="gender" class="form-control" formControlName="gender">
-                        <option value="rabbit">Rabbit</option>
+                        <option *ngFor="let gender of genderList" [value]="gender.name">{{gender.name | gender}}</option>
                     </select>
                     <div *ngIf="isSubmitted && pForm.gender.errors" class="invalid-feedback">
                         <span *ngIf="pForm.gender.errors.required">Campo Requerido</span>

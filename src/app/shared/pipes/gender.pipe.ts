@@ -6,7 +6,7 @@ import { UserGender } from 'src/app/core/enums/user-gender.enum';
 })
 export class GenderPipe implements PipeTransform {
 
-  transform(gender: UserGender): string {
+  transform(gender: UserGender | String): string {
     if (gender) {
       if (gender.toString().toLocaleLowerCase() == 'female') {
         return 'Mujer';

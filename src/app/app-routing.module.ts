@@ -7,10 +7,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
-  // {
-  //   path: UserType.Receptionist.toString(),
-  //   loadChildren: () => import('./modules/receptionist/receptionist.module').then(m => m.ReceptionistModule)
-  // },
   {
     path: UserType.Doctor.toString(),
     loadChildren: () => import('./modules/doctor/doctor.module').then(m => m.DoctorModule)
