@@ -1,17 +1,19 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { GlobalConstants } from 'src/app/common/global-constants';
 import { faBars, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { SessionService } from 'src/app/core/services';
 import { Session } from 'src/app/core/models';
+import { ActivatedRoute, ActivationEnd, Data, Event,Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   app = GlobalConstants.App;
-  private isOpenedSiebar = false;
+  private isOpenedSiebar = true;
   icons = {
     faBars,
     faCart: faShoppingCart,
@@ -21,14 +23,27 @@ export class NavbarComponent implements OnInit {
   @Output()
   openSidebar = new EventEmitter<boolean>();
   session: Session;
-  constructor(private sessionService: SessionService) {
+  routerSubscription: Subscription;
+  pageData:Data;
+  constructor(private sessionService: SessionService, private router: Router, private route: ActivatedRoute) {
     this.sessionService.getSession().subscribe(session => this.session = session);
+    this.routerSubscription = this.router.events.subscribe((routerEvent) => {
+      this.getRouteData(routerEvent);
+    });
+  }
+  ngOnDestroy(): void {
+    this.routerSubscription.unsubscribe();
+  }
+  getRouteData(value: Event) {
+    if (value instanceof ActivationEnd) {
+      const data = value.snapshot.data;
+      if (data && data.page) {
+        this.pageData = data;
+      }
+    }
   }
 
-  ngOnInit(): void {
-    this.openSidebar.emit(this.isOpenedSiebar);
-
-  }
+  ngOnInit(): void {}
   openSideBar(): void {
     this.isOpenedSiebar = !this.isOpenedSiebar;
     this.openSidebar.emit(this.isOpenedSiebar);

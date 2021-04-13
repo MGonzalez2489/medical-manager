@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { GlobalConstants } from 'src/app/common/global-constants';
 
@@ -8,13 +8,18 @@ import { GlobalConstants } from 'src/app/common/global-constants';
   styleUrls: ['./sidebar-menu.component.scss']
 })
 export class SidebarMenuComponent implements OnInit {
-  icons = {
-    faImage,
-  };
+
+  @Output()
+  closeSideBar = new EventEmitter<boolean>();
+
+  icons = {faImage};
   app = GlobalConstants.App;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  closeBar(){
+    this.closeSideBar.emit(false);
   }
 
 }

@@ -1,9 +1,9 @@
 <div class="main-container">
     <ng-sidebar-container>
         <ng-sidebar #sidebar [sidebarClass]="'sidebar'" [(opened)]="sidebarOptions.isOpenedSidebar"
-            [mode]="'push'" [closeOnClickOutside]="sidebarOptions.closeOnClickOutside"
+            [mode]="'push'" [closeOnClickOutside]="sidebarOptions.closeOnClickOutside" (onBackDropClicked)="closeBar()"
             [showBackdrop]="sidebarOptions.showBackdrop" (onCloseStart)="closeBar()">
-            <app-sidebar-menu></app-sidebar-menu>
+            <app-sidebar-menu (closeSideBar)="selectedMenuOption()"></app-sidebar-menu>
         </ng-sidebar>
         <div ng-sidebar-content class="sidebar-content">
             <app-navbar (openSidebar)="openSidebar($event)"></app-navbar>

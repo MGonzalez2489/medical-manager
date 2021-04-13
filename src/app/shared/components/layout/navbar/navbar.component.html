@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light commerce-bar">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex ">
     <a class="navbar-brand m-0" href="#" appStopPropagation (click)="openSideBar()">
       <fa-icon [icon]="icons.faBars"></fa-icon>
       <!-- {{app.name}} -->
-      mobile-size-view-name
     </a>
+    <h3 class="m-0 pl-2 d-inline d-md-none d-lg-none d-xs-none">{{pageData.page}}</h3>
     <div class="nav-fill">
       <div class="nav-search">
         <!-- <app-searcher></app-searcher> -->
@@ -13,7 +13,7 @@
     <ul class="navbar-nav option-bar">
       <li class="nav-item" ngbDropdown display="dynamic">
         <a class="nav-link" href="#" ngbDropdownToggle appStopPropagation>
-          <span *ngIf="session">{{session.user.firstName + ' ' + session.user.lastName}}</span>
+          <!-- <span *ngIf="session">{{session.user.firstName + ' ' + session.user.lastName}}</span> -->
           <fa-icon [icon]="icons.faUser" *ngIf="!session"></fa-icon>
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">

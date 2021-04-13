@@ -13,7 +13,6 @@
     width: 300px;
     &.ng-sidebar--opened.ng-sidebar--over {
         border-right: 1px solid rgb(202, 202, 202);
-        // box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
     }
 }
 
@@ -31,3 +30,12 @@ form {
     float: none;
     flex: 1 1 auto;
 }
+
+
+
+@media only screen and (max-width: 375px) {
+    .page-title{
+        visibility: collapse;
+        display: none;
+    }
+  }
