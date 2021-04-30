@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from './shared/components/layout/page/page.component';
+import { LoginGuard } from './shared/guards';
 
 const routes: Routes = [
   {
@@ -10,13 +11,17 @@ const routes: Routes = [
   {
     path: '',
     component: PageComponent,
+    canActivate: [LoginGuard],
     children: [
-      { path: '', loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule) }
+      { path: 'home', loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule) },
+      { path: 'patients', loadChildren: () => import('./modules/patients/patients.module').then((m) => m.PatientsModule) },
+      { path: 'appointments', loadChildren: () => import('./modules/appointments/appointments.module').then((m) => m.AppointmentsModule) },
+
     ]
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
 ];

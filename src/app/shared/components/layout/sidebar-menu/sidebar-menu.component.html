@@ -3,10 +3,17 @@
     <fa-icon [icon]="icons.faImage"></fa-icon>
     <p class="app-title">{{ appService.app.name }}</p>
   </div>
-  <ul class="list-group content">
+  <ul class="list-group content mt-5">
     <div class="option" *ngFor="let item of options">
-      <a href="#" (click)="closeBar()" appStopPropagation [routerLink]="[item.route]" routerLinkActive="active"
-        class="list-group-item list-group-item-action" *ngIf="!item.isSeparator">{{item.text}}</a>
+      <div class="d-flex">
+
+        <a href="#" (click)="closeBar()" appStopPropagation [routerLink]="[item.route]" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:
+        true}" class="list-group-item list-group-item-action" *ngIf="!item.isSeparator">
+          <fa-icon class="icon" *ngIf="item.icon" [icon]="item.icon"></fa-icon>
+          {{item.text}}
+        </a>
+      </div>
       <hr class="separator w-75" *ngIf="item.isSeparator">
     </div>
   </ul>

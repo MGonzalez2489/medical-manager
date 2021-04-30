@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       this.authService.postLogin(this.loginForm.value).subscribe((data: ReturnModel<Session>) => {
         if (data.isSuccess) {
           this.sessionService.setSession(data.model);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         }
         else {
           this.errorMessage = data.message;

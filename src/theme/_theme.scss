@@ -16,7 +16,18 @@ $theme-colors: (
 //** Background color for `<body>`.
 $body-bg: #fafbfe !important;
 //** Global text color on `<body>`.
-$text-color: $gray-dark !default;
+$text-color: $gray-dark;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: $gray-dark;
+}
 
 //** Global textual link color.
 $link-color: $brand-primary !default;

@@ -51,10 +51,6 @@ export class AppService {
       return this.breadcrumbs;
     }
 
-    if (this.pageData.isParent) {
-      this.breadcrumbs = new Array<BreadcrumbModel>();
-    }
-
     for (const child of children) {
       const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
       if (routeURL !== '') {
@@ -62,11 +58,18 @@ export class AppService {
       }
 
       const label = child.snapshot.data['title'];
-      if (label) {
+      if (label != null && label != undefined) {
         const bd = new BreadcrumbModel();
         bd.title = label;
         bd.link = url;
-        this.breadcrumbs.push(bd);
+
+        const exists = this.breadcrumbs.find(f => f.title == bd.title);
+        if (exists) {
+          this.breadcrumbs.pop();
+        }
+        else {
+          this.breadcrumbs.push(bd);
+        }
       }
 
       return this.generateBreadCrumb(child, url, bds);

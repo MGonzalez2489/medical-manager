@@ -1,92 +1,84 @@
-<div class="container page">
-    <div class="row">
-        <div class="col-12">
-            <h1>Pacientes</h1>
-        </div>
-        <div class="col-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12 d-flex justify-content-between align-items-center">
-            <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId" placeholder="Buscar"
-                [(ngModel)]="searchCriteria.keyword" (ngModelChange)="getPatients()">
-            <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['nuevo']"
-                routerLinkActive="router-link-active">Nuevo</a>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <table class="table">
-                <thead>
-                    <tr class="row">
-                        <th (click)="sortBy('firstName')" class="col-4" style="cursor: pointer;">
-                            Nombre
-                            <fa-icon [icon]="icons.faAngleUp"
-                                *ngIf="searchCriteria.orderBy == 'firstName' && searchCriteria.orderDir == 'asc'">
-                            </fa-icon>
-                            <fa-icon [icon]="icons.faAngleDown"
-                                *ngIf="searchCriteria.orderBy == 'firstName' && searchCriteria.orderDir == 'desc'">
-                            </fa-icon>
-                        </th>
-                        <th (click)="sortBy('birthday')" class="col-4" style="cursor: pointer;" class="col-1">
-                            Edad
-                            <fa-icon [icon]="icons.faAngleUp"
-                                *ngIf="searchCriteria.orderBy == 'birthday' && searchCriteria.orderDir == 'asc'">
-                            </fa-icon>
-                            <fa-icon [icon]="icons.faAngleDown"
-                                *ngIf="searchCriteria.orderBy == 'birthday' && searchCriteria.orderDir == 'desc'">
-                            </fa-icon>
-                        </th>
-                        <th (click)="sortBy('email')" class="col-4" style="cursor: pointer;" class="col-3">
-                            Email
-                            <fa-icon [icon]="icons.faAngleUp"
-                                *ngIf="searchCriteria.orderBy == 'email' && searchCriteria.orderDir == 'asc'"></fa-icon>
-                            <fa-icon [icon]="icons.faAngleDown"
-                                *ngIf="searchCriteria.orderBy == 'email' && searchCriteria.orderDir == 'desc'">
-                            </fa-icon>
-                        </th>
-                        <th (click)="sortBy('phone')" class="col-4" style="cursor: pointer;" class="col-3">
-                            Teléfono
-                            <fa-icon [icon]="icons.faAngleUp"
-                                *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'asc'"></fa-icon>
-                            <fa-icon [icon]="icons.faAngleDown"
-                                *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'desc'">
-                            </fa-icon>
-                        </th>
-                        <th class="col-1"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="row" *ngFor="let patient of patients">
-                        <td class="col-4">{{patient.firstName + ' ' + patient.lastName}}</td>
-                        <td class="col-1">{{patient.birthday | age}}</td>
-                        <td class="col-3">{{patient.email}}</td>
-                        <td class="col-3">{{patient.phone | phone}}</td>
-                        <td class="col-1">
-                            <div ngbDropdown class="d-inline-block">
-                                <button class="btn m-0 p-0" id="dropdownBasic1" ngbDropdownToggle>
-                                    <fa-icon [icon]="icons.faEllipsisH"></fa-icon>
-                                </button>
-                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                    <a href="#" appStopPropagation [routerLink]="[patient.guid,'perfil']"
-                                        ngbDropdownItem>Perfil</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="d-flex justify-content-end">
-                <ngb-pagination [collectionSize]="searchCriteria.totalRecords" [(page)]="searchCriteria.page"
-                    [maxSize]="searchCriteria.perPage" (pageChange)="getPatients()">
-                </ngb-pagination>
+<div class="card shadow-1">
+    <div class="card-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between align-items-center">
+                    <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId"
+                        placeholder="Search" [(ngModel)]="searchCriteria.keyword" (ngModelChange)="getPatients()">
+                    <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['nuevo']"
+                        routerLinkActive="router-link-active">New</a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                            <tr class="row">
+                                <th (click)="sortBy('firstName')" class="col-4" style="cursor: pointer;">
+                                    Nombre
+                                    <fa-icon [icon]="icons.faAngleUp"
+                                        *ngIf="searchCriteria.orderBy == 'firstName' && searchCriteria.orderDir == 'asc'">
+                                    </fa-icon>
+                                    <fa-icon [icon]="icons.faAngleDown"
+                                        *ngIf="searchCriteria.orderBy == 'firstName' && searchCriteria.orderDir == 'desc'">
+                                    </fa-icon>
+                                </th>
+                                <th (click)="sortBy('birthday')" class="col-4" style="cursor: pointer;" class="col-1">
+                                    Edad
+                                    <fa-icon [icon]="icons.faAngleUp"
+                                        *ngIf="searchCriteria.orderBy == 'birthday' && searchCriteria.orderDir == 'asc'">
+                                    </fa-icon>
+                                    <fa-icon [icon]="icons.faAngleDown"
+                                        *ngIf="searchCriteria.orderBy == 'birthday' && searchCriteria.orderDir == 'desc'">
+                                    </fa-icon>
+                                </th>
+                                <th (click)="sortBy('email')" class="col-4" style="cursor: pointer;" class="col-3">
+                                    Email
+                                    <fa-icon [icon]="icons.faAngleUp"
+                                        *ngIf="searchCriteria.orderBy == 'email' && searchCriteria.orderDir == 'asc'">
+                                    </fa-icon>
+                                    <fa-icon [icon]="icons.faAngleDown"
+                                        *ngIf="searchCriteria.orderBy == 'email' && searchCriteria.orderDir == 'desc'">
+                                    </fa-icon>
+                                </th>
+                                <th (click)="sortBy('phone')" class="col-4" style="cursor: pointer;" class="col-3">
+                                    Teléfono
+                                    <fa-icon [icon]="icons.faAngleUp"
+                                        *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'asc'">
+                                    </fa-icon>
+                                    <fa-icon [icon]="icons.faAngleDown"
+                                        *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'desc'">
+                                    </fa-icon>
+                                </th>
+                                <th class="col-1"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row" *ngFor="let patient of patients">
+                                <td class="col-4">{{patient.firstName + ' ' + patient.lastName}}</td>
+                                <td class="col-1">{{patient.birthday | age}}</td>
+                                <td class="col-3">{{patient.email}}</td>
+                                <td class="col-3">{{patient.phone | phone}}</td>
+                                <td class="col-1">
+                                    <div ngbDropdown class="d-inline-block">
+                                        <button class="btn m-0 p-0" id="dropdownBasic1" ngbDropdownToggle>
+                                            <fa-icon [icon]="icons.faEllipsisH"></fa-icon>
+                                        </button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                            <a href="#" appStopPropagation [routerLink]="[patient.guid,'perfil']"
+                                                ngbDropdownItem>Perfil</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-end">
+                        <ngb-pagination [collectionSize]="searchCriteria.totalRecords" [(page)]="searchCriteria.page"
+                            [maxSize]="searchCriteria.perPage" (pageChange)="getPatients()">
+                        </ngb-pagination>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

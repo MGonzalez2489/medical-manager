@@ -33,7 +33,6 @@ export class SessionService {
   }
   deleteSession(): void {
     this.currentSession.complete();
-   // this.currentSession.unsubscribe();
     localStorage.removeItem(this.SESSION_KEY);
     this.router.navigate(['/login']);
   }
@@ -48,7 +47,7 @@ export class SessionService {
   }
 
   getLoggedInUser(): User {
-    return this.currentSession.value.user;
+    return this.currentSession.value ? this.currentSession.value.user : null;
   }
   getSessionToken(): string {
     if (this.currentSession.value)
@@ -61,5 +60,10 @@ export class SessionService {
         this.deleteSession();
       }
     })
+  }
+  isUserLoggedIn() {
+    const user = this.getLoggedInUser();
+    const token = this.getSessionToken();
+    return user && token;
   }
 }
