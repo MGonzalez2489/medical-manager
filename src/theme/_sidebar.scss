@@ -1,0 +1,38 @@
+@import "./colors";
+
+.sidebar {
+  width: auto;
+  min-width: 260px;
+  background-color: $dark-primary;
+
+  .app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    background-color: red;
+    .app-title {
+      margin: 0px 0px 0px 8px;
+    }
+  }
+
+  .list-group-item {
+    color: #818fa0;
+    border: 0px;
+    background-color: transparent;
+
+    &:hover {
+      color: #bdcfe6;
+      background-color: transparent;
+    }
+  }
+  .list-group-item.active {
+    color: $white;
+    background-color: transparent;
+  }
+}
+.option {
+  .separator {
+    color: #818fa0 !important;
+  }
+}

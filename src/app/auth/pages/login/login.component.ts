@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   isSubmitted: boolean;
   loginForm: FormGroup;
   errorMessage: string;
-  // alert = AlertType.danger;
+
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       this.authService.postLogin(this.loginForm.value).subscribe((data: ReturnModel<Session>) => {
         if (data.isSuccess) {
           this.sessionService.setSession(data.model);
-          this.router.navigate(['/' + data.model.user.userType]);
+          this.router.navigate(['/dashboard']);
         }
         else {
           this.errorMessage = data.message;

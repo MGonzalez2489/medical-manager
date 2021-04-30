@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let b of appService.breadcrumbs; let last = last">
+            <a href="#" appStopPropagation [routerLink]="[b.link]" *ngIf="!last">{{b.title}}</a>
+            <span *ngIf="last">{{b.title}}</span>
+        </li>
+    </ol>
+</nav>

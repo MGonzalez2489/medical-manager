@@ -8,22 +8,28 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { AgePipe, PhonePipe } from './pipes';
 import { GenderPipe } from './pipes/gender.pipe';
+import { SidebarMenuComponent } from './components/layout/sidebar-menu/sidebar-menu.component';
+import { PageHeaderComponent } from './components/layout/page-header/page-header.component';
+import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb.component';
+import { PageComponent } from './components/layout/page/page.component';
+import { SidebarModule } from 'ng-sidebar';
 
 
 @NgModule({
-  declarations: [NavbarComponent, StopPropagationDirective, PhonePipe, AgePipe, GenderPipe],
+  declarations: [NavbarComponent, StopPropagationDirective, PhonePipe, AgePipe, GenderPipe, SidebarMenuComponent, BreadcrumbComponent, PageHeaderComponent, PageComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    SidebarModule.forRoot()
   ],
   exports: [
     ReactiveFormsModule,
     FormsModule,
-    NavbarComponent,
+    PageComponent,
     FontAwesomeModule,
     RouterModule,
     NgbModule,

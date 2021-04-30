@@ -1,5 +1,4 @@
-import { UserType } from '../../enums';
-import { UserGender } from '../../enums/user-gender.enum';
+import { UserGender, UserType } from '../../enums';
 import { DbModel } from './dbModel';
 
 export abstract class User extends DbModel {

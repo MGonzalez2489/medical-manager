@@ -1,41 +1,43 @@
 @import "./layout";
+@import "./colors";
+@import "./theme";
+@import "./borders";
 
+// components
+@import "./sidebar";
 
-.main-container {
-    width: 100vw;
-    height: 100vh;
-}
+// .main-container {
+//     width: 100vw;
+//     height: 100vh;
+// }
 
-.sidebar {
-    background-color: rgb(250, 250, 250);
-    //padding: 2em 1em;
-    height: 100vh;
-    width: 300px;
-    &.ng-sidebar--opened.ng-sidebar--over {
-        border-right: 1px solid rgb(202, 202, 202);
-    }
-}
+// .sidebar {
+//     background-color: rgb(250, 250, 250);
+//     height: 100vh;
+//     width: 300px;
+//     &.ng-sidebar--opened.ng-sidebar--over {
+//         border-right: 1px solid rgb(202, 202, 202);
+//     }
+// }
 
-form {
-    .invalid-feedback {
-        color: #dc3546;
-        padding-left: 3px;
-        display: block;
-    }
-}
+// form {
+//     .invalid-feedback {
+//         color: #dc3546;
+//         padding-left: 3px;
+//         display: block;
+//     }
+// }
 
-.nav-fill {
-    display: flex;
-    position: static;
-    float: none;
-    flex: 1 1 auto;
-}
+// .nav-fill {
+//     display: flex;
+//     position: static;
+//     float: none;
+//     flex: 1 1 auto;
+// }
 
-
-
-@media only screen and (max-width: 375px) {
-    .page-title{
-        visibility: collapse;
-        display: none;
-    }
-  }
+// @media only screen and (max-width: 375px) {
+//     .page-title{
+//         visibility: collapse;
+//         display: none;
+//     }
+//   }

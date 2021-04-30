@@ -1,0 +1,14 @@
+.page-title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+
+    .page-title{
+        font-size: 18px;
+        text-overflow: ellipsis;
+        color: #6c757d;
+        font-weight: 700;
+    }
+
+}

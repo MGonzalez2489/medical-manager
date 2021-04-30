@@ -1,0 +1,20 @@
+<div class="main-container">
+    <ng-sidebar-container>
+        <ng-sidebar #sidebar [sidebarClass]="'sidebar'" [(opened)]="sidebarOptions.isOpened"
+            [mode]="sidebarOptions.mode" [closeOnClickOutside]="sidebarOptions.closeOnClickOutside"
+            [showBackdrop]="sidebarOptions.showBackdrop">
+            <app-sidebar-menu></app-sidebar-menu>
+        </ng-sidebar>
+        <div ng-sidebar-content>
+            <app-navbar (openSidebar)="sidebarOptions.openCloseSideBar()"></app-navbar>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <app-page-header></app-page-header>
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-sidebar-container>
+</div>
