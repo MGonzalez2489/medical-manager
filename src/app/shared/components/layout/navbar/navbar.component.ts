@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { GlobalConstants } from 'src/app/common/global-constants';
-import { faBars, faBell, faUserCircle, faQuestionCircle, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faUserCircle, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import { AppService, SessionService } from 'src/app/core/services';
 import { Session } from 'src/app/core/models';
 import { ActivatedRoute, ActivationEnd, Data, Event, Router, } from '@angular/router';

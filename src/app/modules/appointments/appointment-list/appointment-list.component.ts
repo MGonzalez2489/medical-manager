@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-appointment-list',

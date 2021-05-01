@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -12,7 +11,6 @@ import { LoadingSpinnerService } from './core/modules/loading-spinner/loading-sp
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BusyHttpRequestInterceptor } from './core/interceptors/busy-http-request.interceptor';
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
-import { SidebarModule } from 'ng-sidebar';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
