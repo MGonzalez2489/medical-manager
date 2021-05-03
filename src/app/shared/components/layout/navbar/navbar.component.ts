@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faBars, faCog } from '@fortawesome/free-solid-svg-icons';
 import { faBell, faUserCircle, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
-import { AppService, SessionService } from 'src/app/core/services';
-import { Session } from 'src/app/core/models';
+import { AppService, EnumService, SessionService } from 'src/app/core/services';
+import { KeyNameModel, Session } from 'src/app/core/models';
 
 @Component({
   selector: 'app-navbar',
@@ -24,18 +24,28 @@ export class NavbarComponent implements OnInit {
   openSidebar = new EventEmitter<boolean>();
   session: Session;
 
+  languages = new Array<KeyNameModel>();
+  selectedLanguage = new KeyNameModel();
 
   constructor(
     private sessionService: SessionService,
-    public appService: AppService) {
+    public appService: AppService,
+  ) {
     this.sessionService.getSession().subscribe((session) => (this.session = session));
 
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.languages = EnumService.GetLanguajes();
+    this.selectedLanguage = this.languages[0];
+  }
   openSideBar(): void {
     this.openSidebar.emit(true);
   }
   logout(): void {
     this.sessionService.requestLogout();
+  }
+  changeLanguaje(newValue: KeyNameModel) {
+    this.appService.setLanguaje(newValue);
+    this.selectedLanguage = newValue;
   }
 }

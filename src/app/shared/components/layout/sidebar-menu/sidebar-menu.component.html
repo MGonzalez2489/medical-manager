@@ -11,7 +11,7 @@
           [routerLinkActiveOptions]="{exact:
         true}" class="list-group-item list-group-item-action" *ngIf="!item.isSeparator">
           <fa-icon class="icon" *ngIf="item.icon" [icon]="item.icon"></fa-icon>
-          {{item.text}}
+          {{item.text | translate}}
         </a>
       </div>
       <hr class="separator w-75" *ngIf="item.isSeparator">

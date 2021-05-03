@@ -1,0 +1,36 @@
+{
+    "sidebar": {
+        "home": {
+            "title": "Inicio",
+            "text": ""
+        },
+        "appointments": {
+            "title": "Citas",
+            "text": ""
+        },
+        "patients": {
+            "title": "Pacientes",
+            "text": ""
+        },
+        "receptionist": {
+            "title": "Recepcionistas",
+            "text": ""
+        },
+        "billing": {
+            "title": "Facturacion",
+            "text": ""
+        },
+        "faqs": {
+            "title": "FAQs",
+            "text": ""
+        },
+        "aboutus": {
+            "title": "Conocenos",
+            "text": ""
+        },
+        "logout": {
+            "title": "Salir",
+            "text": ""
+        }
+    }
+}

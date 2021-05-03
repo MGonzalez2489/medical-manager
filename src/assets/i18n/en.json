@@ -1,0 +1,36 @@
+{
+    "sidebar": {
+        "home": {
+            "title": "Home",
+            "text": ""
+        },
+        "appointments": {
+            "title": "Appointments",
+            "text": ""
+        },
+        "patients": {
+            "title": "Patients",
+            "text": ""
+        },
+        "receptionist": {
+            "title": "Receptionist",
+            "text": ""
+        },
+        "billing": {
+            "title": "Billing",
+            "text": ""
+        },
+        "faqs": {
+            "title": "FAQs",
+            "text": ""
+        },
+        "aboutus": {
+            "title": "About Us",
+            "text": ""
+        },
+        "logout": {
+            "title": "Log Out",
+            "text": ""
+        }
+    }
+}

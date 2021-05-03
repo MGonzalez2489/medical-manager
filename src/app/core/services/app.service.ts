@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 import { GlobalConstants } from 'src/app/common/global-constants';
 import { ActivatedRoute, ActivationEnd, Data, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { KeyNameModel } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +21,11 @@ export class AppService {
   pageData: Data;
   breadcrumbs = new Array<BreadcrumbModel>();
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService) {
     this.loadRouteData();
     this.resizeObservable$ = fromEvent(window, 'resize');
     this.loadAppGlobals();
-
+    translate.setDefaultLang('en');
   }
   loadRouteData(): void {
     this.router.events.subscribe((routerEvent) => {
@@ -82,5 +84,8 @@ export class AppService {
   }
   private isEmptyObject(obj) {
     return (obj && (Object.keys(obj).length === 0));
+  }
+  setLanguaje(newValue: KeyNameModel): void {
+    this.translate.setDefaultLang(newValue.key.toString());
   }
 }

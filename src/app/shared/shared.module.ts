@@ -13,6 +13,10 @@ import { PageHeaderComponent } from './components/layout/page-header/page-header
 import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb.component';
 import { PageComponent } from './components/layout/page/page.component';
 import { SidebarModule } from 'ng-sidebar';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -24,7 +28,14 @@ import { SidebarModule } from 'ng-sidebar';
     FontAwesomeModule,
     RouterModule,
     NgbModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     ReactiveFormsModule,
@@ -36,7 +47,13 @@ import { SidebarModule } from 'ng-sidebar';
     StopPropagationDirective,
     PhonePipe,
     AgePipe,
-    GenderPipe
+    GenderPipe,
+    TranslateModule
   ]
 })
 export class SharedModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

@@ -13,6 +13,7 @@ import { BusyHttpRequestInterceptor } from './core/interceptors/busy-http-reques
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -40,3 +41,4 @@ import { SharedModule } from './shared/shared.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

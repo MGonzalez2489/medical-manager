@@ -7,6 +7,15 @@
   </div>
 
   <ul class="navbar-nav option-bar">
+    <li class="nav-item" ngbDropdown display="dynamic">
+      <a class="nav-link" href="#" ngbDropdownToggle appStopPropagation *ngIf="selectedLanguage">
+        {{selectedLanguage.name}}
+      </a>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a href="" appStopPropagation ngbDropdownItem *ngFor="let l of languages"
+          (click)="changeLanguaje(l)">{{l.name}}</a>
+      </div>
+    </li>
     <li class="nav-item">
       <a href="#" class="nav-link" appStopPropagation>
         <fa-icon [icon]="icons.faBell"></fa-icon>
