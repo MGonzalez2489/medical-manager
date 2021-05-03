@@ -1,0 +1,12 @@
+form {
+    .invalid-feedback {
+        color: #dc3546 !important;
+        padding-left: 3px;
+        display: inline;
+        span {
+            color: #dc3546 !important;
+            padding-left: 3px;
+            display: inline;
+        }
+    }
+}

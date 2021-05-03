@@ -6,6 +6,7 @@ import { EnumService, SessionService } from 'src/app/core/services';
 import { KeyNameModel } from 'src/app/core/models';
 import { NgbDateCustomParserFormatter } from 'src/app/shared/formaters';
 import { PatientService } from '../services/patient.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,9 @@ export class PatientFormComponent implements OnInit {
     faCalendar
   };
   genderList = new Array<KeyNameModel>();
-  constructor(private formBuilder: FormBuilder, private patientService: PatientService) { }
+  constructor(private formBuilder: FormBuilder,
+    private patientService: PatientService,
+    private router: Router) { }
   get pForm() { return this.patientForm.controls; }
   ngOnInit(): void {
     this.genderList = EnumService.getGenderArray();
@@ -46,7 +49,7 @@ export class PatientFormComponent implements OnInit {
       var constForm = Object.assign(Object.create(this.patientForm.value), this.patientForm.value);
       constForm.birthday = parser.formatAPI(constForm.birthday);
       this.patientService.postPatient(constForm).subscribe(data => {
-        console.log("DATA", data);
+        this.router.navigate(['/patients']);
       })
     }
   }

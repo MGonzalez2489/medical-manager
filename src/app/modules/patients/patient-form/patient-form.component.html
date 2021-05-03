@@ -2,68 +2,87 @@
     <div class="card-body">
         <div class="container-fluid">
             <form [formGroup]="patientForm" (ngSubmit)="submit()">
-                <div class="form-group">
-                    <label for="name">First Name *</label>
-                    <input id="name" name="name" placeholder="Nombre del paciente" type="text" class="form-control"
-                        formControlName="firstName">
-                    <div *ngIf="isSubmitted && pForm.firstName.errors" class="invalid-feedback">
-                        <span *ngIf="pForm.firstName.errors.required">Required</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Apellido(s) *</label>
-                    <input id="lastName" name="lastName" placeholder="Apellidos del paciente" type="text"
-                        formControlName="lastName" class="form-control">
-                    <div *ngIf="isSubmitted && pForm.lastName.errors" class="invalid-feedback">
-                        <span *ngIf="pForm.lastName.errors.required">Required</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="birthday">Birthday *</label>
-                    <div class="input-group">
-                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
-                            formControlName="birthday">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                                <fa-icon [icon]="icons.faCalendar"></fa-icon>
-                            </button>
-                        </div>
-                        <div *ngIf="isSubmitted && pForm.birthday.errors" class="invalid-feedback">
-                            <span *ngIf="pForm.birthday.errors.required">Required</span>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-12 col-md-2 col-form-label">First Name *</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input id="name" name="name" placeholder="Nombre del paciente" type="text" class="form-control"
+                            formControlName="firstName"
+                            [ngClass]="{'is-invalid': isSubmitted && pForm.firstName.errors}">
+                        <div *ngIf="isSubmitted && pForm.firstName.errors" class="invalid-feedback">
+                            <span *ngIf="pForm.firstName.errors.required">Required</span>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input id="email" name="email" placeholder="Email del paciente" type="email" class="form-control"
-                        formControlName="email">
-                    <div *ngIf="isSubmitted && pForm.email.errors" class="invalid-feedback">
-                        <span *ngIf="pForm.email.errors.required">Required</span>
+                <div class="form-group row">
+                    <label for="lastName" class="col-sm-12 col-md-2 col-form-label">Apellido(s) *</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input id="lastName" name="lastName" placeholder="Apellidos del paciente" type="text"
+                            formControlName="lastName" class="form-control"
+                            [ngClass]="{'is-invalid': isSubmitted && pForm.lastName.errors}">
+                        <div *ngIf="isSubmitted && pForm.lastName.errors" class="invalid-feedback">
+                            <span *ngIf="pForm.lastName.errors.required">Required</span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone *</label>
-                    <input id="phone" name="phone" placeholder="Teléfono del paciente" type="text" class="form-control"
-                        formControlName="phone">
-                    <div *ngIf="isSubmitted && pForm.phone.errors" class="invalid-feedback">
-                        <span *ngIf="pForm.phone.errors.required">Required</span>
+                <div class="form-group row">
+                    <label for="birthday" class="col-sm-12 col-md-2 col-form-label">Birthday *</label>
+                    <div class="col-sm-12 col-md-10">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                                #d="ngbDatepicker" formControlName="birthday"
+                                [ngClass]="{'is-invalid': isSubmitted && pForm.birthday.errors}">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                    <fa-icon [icon]="icons.faCalendar"></fa-icon>
+                                </button>
+                            </div>
+                            <div *ngIf="isSubmitted && pForm.birthday.errors" class="invalid-feedback">
+                                <span *ngIf="pForm.birthday.errors.required">Required</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="gender">Gender *</label>
-                    <select id="gender" name="gender" class="form-control" formControlName="gender">
-                        <option *ngFor="let gender of genderList" [value]="gender.name">{{gender.name | gender}}
-                        </option>
-                    </select>
-                    <div *ngIf="isSubmitted && pForm.gender.errors" class="invalid-feedback">
-                        <span *ngIf="pForm.gender.errors.required">Required</span>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-12 col-md-2 col-form-label">Email *</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input id="email" name="email" placeholder="Email del paciente" type="email"
+                            class="form-control" formControlName="email"
+                            [ngClass]="{'is-invalid': isSubmitted && pForm.email.errors}">
+                        <div *ngIf="isSubmitted && pForm.email.errors" class="invalid-feedback">
+                            <span *ngIf="pForm.email.errors.required">Required</span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group d-flex justify-content-between align-items-center">
-                    <small>Required fields *</small>
-                    <div>
-                        <button name="submit" type="submit" class="btn btn-primary mr-3">Save</button>
-                        <button name="cancel" type="button" class="btn btn-link">Cancel</button>
+                <div class="form-group row">
+                    <label for="phone" class="col-sm-12 col-md-2 col-form-label">Phone *</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input id="phone" name="phone" placeholder="Teléfono del paciente" type="text"
+                            class="form-control" formControlName="phone"
+                            [ngClass]="{'is-invalid': isSubmitted && pForm.phone.errors}">
+                        <div *ngIf="isSubmitted && pForm.phone.errors" class="invalid-feedback">
+                            <span *ngIf="pForm.phone.errors.required">Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="gender" class="col-sm-12 col-md-2 col-form-label">Gender *</label>
+                    <div class="col-sm-12 col-md-10">
+                        <select id="gender" name="gender" class="form-control" formControlName="gender">
+                            <option *ngFor="let gender of genderList" [value]="gender.name">{{gender.name | gender}}
+                            </option>
+                        </select>
+                        <div *ngIf="isSubmitted && pForm.gender.errors" class="invalid-feedback">
+                            <span *ngIf="pForm.gender.errors.required">Required</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <small>Required fields *</small>
+                        <div>
+                            <button name="submit" type="submit" class="btn btn-primary mr-3">Save</button>
+                            <button name="cancel" type="button" class="btn btn-link">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </form>

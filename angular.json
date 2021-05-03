@@ -34,7 +34,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "rxjs/internal/BehaviorSubject",
+              "rxjs/internal/operators/tap",
+              "rxjs/internal/observable/fromEvent"
+            ]
           },
           "configurations": {
             "production": {
