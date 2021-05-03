@@ -20,7 +20,7 @@ $gray-label: #818fa0;
     }
   }
 
-  .list-group-item {
+  .list-group-item-action {
     color: $gray-label;
     border: 0px;
     background-color: transparent;
@@ -29,10 +29,13 @@ $gray-label: #818fa0;
       color: #bdcfe6;
       background-color: transparent;
     }
-  }
-  .list-group-item.active {
-    color: $white;
-    background-color: transparent;
+    &.active {
+      color: $white;
+      background-color: transparent;
+    }
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
 .option {

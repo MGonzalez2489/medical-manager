@@ -1,0 +1,11 @@
+@import "./colors";
+
+.pagination {
+    .page-item {
+        color: $primary;
+
+        &.active .page-link {
+            background-color: $primary;
+        }
+    }
+}

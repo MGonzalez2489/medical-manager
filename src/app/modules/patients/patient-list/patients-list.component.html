@@ -5,7 +5,7 @@
                 <div class="col-12 d-flex justify-content-between align-items-center">
                     <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId"
                         placeholder="Search" [(ngModel)]="searchCriteria.keyword" (ngModelChange)="getPatients()">
-                    <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['nuevo']"
+                    <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['new']"
                         routerLinkActive="router-link-active">New</a>
                 </div>
             </div>
@@ -15,7 +15,7 @@
                         <thead>
                             <tr class="row">
                                 <th (click)="sortBy('firstName')" class="col-4" style="cursor: pointer;">
-                                    Nombre
+                                    Name
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'firstName' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -24,7 +24,7 @@
                                     </fa-icon>
                                 </th>
                                 <th (click)="sortBy('birthday')" class="col-4" style="cursor: pointer;" class="col-1">
-                                    Edad
+                                    Birthday
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'birthday' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -42,7 +42,7 @@
                                     </fa-icon>
                                 </th>
                                 <th (click)="sortBy('phone')" class="col-4" style="cursor: pointer;" class="col-3">
-                                    Teléfono
+                                    Phone
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -50,7 +50,7 @@
                                         *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'desc'">
                                     </fa-icon>
                                 </th>
-                                <th class="col-1"></th>
+                                <th class="col-1">Action</th>
                             </tr>
                         </thead>
                         <tbody>

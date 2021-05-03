@@ -1,0 +1,12 @@
+@import "./colors";
+
+.table {
+    color: $gray-dark;
+    .row {
+        margin: 0px;
+        th{
+            border: 0px;
+            color: $gray-dark;
+        }
+    }
+}
