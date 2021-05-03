@@ -5,10 +5,10 @@ import { PatientListComponent } from './patient-list/patients-list.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 
 const routes: Routes = [
-  { path: '', component: PatientListComponent, data: { title: 'Patients', isParent: false } },
-  { path: 'new', component: PatientFormComponent, data: { title: 'New Patient', isParent: false } },
-  { path: ':guid/edit', component: PatientFormComponent, data: { title: 'Edit Patient', isParent: false } },
-  { path: ':guid/profile', component: PatientProfileComponent, data: { title: 'Patient Profile', isParent: false } },
+  { path: '', component: PatientListComponent, data: { title: 'patients.title_plural.title' } },
+  { path: 'new', component: PatientFormComponent, data: { title: 'patients.new_patient.title' } },
+  { path: ':guid/edit', component: PatientFormComponent, data: { title: 'patients.edit_patient.title' } },
+  { path: ':guid/profile', component: PatientProfileComponent, data: { title: 'patients.profile_patient.title' } },
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 

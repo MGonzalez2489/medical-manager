@@ -32,5 +32,75 @@
             "title": "Salir",
             "text": ""
         }
+    },
+    "navbar": {
+        "notifications": {
+            "title": "Notificaciones",
+            "text": ""
+        },
+        "settings": {
+            "title": "Configuración"
+        },
+        "help": {
+            "title": "Ayuda"
+        }
+    },
+    "view": {
+        "search": {
+            "title": "Buscar"
+        },
+        "new": {
+            "title": "Nuevo"
+        },
+        "edit": {
+            "title": "Editar"
+        },
+        "cancel": {
+            "title": "Cancelar"
+        },
+        "save": {
+            "title": "Guardar"
+        },
+        "required_field": {
+            "title": "Campo requerido"
+        },
+        "action": {
+            "title": "Opciones"
+        }
+    },
+    "patients": {
+        "title_plural": {
+            "title": "Pacientes"
+        },
+        "title_singular": {
+            "title": "Paciente"
+        },
+        "name": {
+            "title": "Nombre"
+        },
+        "birthday": {
+            "title": "Fecha de Nacimiento"
+        },
+        "age": {
+            "title": "Edad"
+        },
+        "email": {
+            "title": "Email"
+        },
+        "phone": {
+            "title": "Teléfono"
+        },
+        "profile": {
+            "title": "Perfil"
+        },
+        "new_patient": {
+            "title": "Nuevo Paciente"
+        },
+        "edit_patient": {
+            "title": "Editar Paciente"
+        },
+        "profile_patient": {
+            "title": "Perfil del paciente"
+        }
     }
 }
