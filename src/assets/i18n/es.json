@@ -76,7 +76,10 @@
             "title": "Paciente"
         },
         "name": {
-            "title": "Nombre"
+            "title": "Nombre (s)"
+        },
+        "lastName": {
+            "title": "Apellidos"
         },
         "birthday": {
             "title": "Fecha de Nacimiento"
@@ -101,6 +104,9 @@
         },
         "profile_patient": {
             "title": "Perfil del paciente"
+        },
+        "gender": {
+            "title": "Genero"
         }
     }
 }

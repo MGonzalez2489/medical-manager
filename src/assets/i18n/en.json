@@ -80,6 +80,9 @@
         "name": {
             "title": "Name"
         },
+        "lastName": {
+            "title": "Last Name"
+        },
         "birthday": {
             "title": "Birthday"
         },
@@ -103,9 +106,10 @@
         },
         "profile_patient": {
             "title": "Patient Profile"
+        },
+        "gender":{
+            "title": "Gender"
         }
     },
-    "home":{
-        
-    }
+    "home": {}
 }

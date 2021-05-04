@@ -3,7 +3,7 @@
     <a class="navbar-brand m-0" href="#" appStopPropagation (click)="openSideBar()">
       <fa-icon [icon]="icons.faBars"></fa-icon>
     </a>
-    <h5 class="m-0 pl-2 d-inline d-md-none d-lg-none d-xs-none">{{appService.pageData.title}}</h5>
+    <h5 class="m-0 pl-2 d-inline d-md-none d-lg-none d-xs-none">{{appService.pageData.title | translate}}</h5>
   </div>
 
   <ul class="navbar-nav option-bar">

@@ -1,10 +1,10 @@
-<div class="container page">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-md-4">
+            <div class="card shadow-1">
                 <div class="card-body">
                     <h4 class="card-title">{{patient.firstName + ' ' + patient.lastName}}</h4>
-                    <ul class="list-group list-group-horizontal border-0 text-muted">
+                    <ul class="list-group  border-0 text-muted">
                         <li class="list-group-item pt-0 pb-0  pl-0 border-0">Email: {{patient.email}}</li>
                         <li class="list-group-item pt-0 pb-0 border-0">Teléfono: {{patient.phone | phone}}</li>
                         <li class="list-group-item pt-0 pb-0 border-0">Edad: {{patient.birthday | age}}</li>
@@ -13,10 +13,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-md-8">
+            <div class="card shadow-1">
                 <div class="card-body">
                     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills">
                         <li [ngbNavItem]="1">
