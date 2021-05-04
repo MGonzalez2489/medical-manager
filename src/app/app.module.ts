@@ -13,6 +13,10 @@ import { BusyHttpRequestInterceptor } from './core/interceptors/busy-http-reques
 import { RequestInterceptor } from './core/interceptors/request.interceptor';
 import { SharedModule } from './shared/shared.module';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +30,13 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     FontAwesomeModule,
     SharedModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [
     LoadingSpinnerService,
@@ -41,4 +52,9 @@ import { SharedModule } from './shared/shared.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
 

@@ -4,9 +4,12 @@
             <div class="row">
                 <div class="col-12 d-flex justify-content-between align-items-center">
                     <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId"
-                        placeholder="Search" [(ngModel)]="searchCriteria.keyword" (ngModelChange)="getPatients()">
+                        [placeholder]="'view.search.title' | translate" [(ngModel)]="searchCriteria.keyword"
+                        (ngModelChange)="getPatients()">
                     <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['new']"
-                        routerLinkActive="router-link-active">New</a>
+                        routerLinkActive="router-link-active">
+                        {{'view.new.title' | translate}}
+                    </a>
                 </div>
             </div>
             <div class="row mt-4">
@@ -15,7 +18,7 @@
                         <thead>
                             <tr class="row">
                                 <th (click)="sortBy('firstName')" class="col-4" style="cursor: pointer;">
-                                    Name
+                                    {{'patients.name.title' | translate}}
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'firstName' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -24,7 +27,7 @@
                                     </fa-icon>
                                 </th>
                                 <th (click)="sortBy('birthday')" class="col-4" style="cursor: pointer;" class="col-1">
-                                    Birthday
+                                    {{'patients.age.title' | translate}}
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'birthday' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -33,7 +36,7 @@
                                     </fa-icon>
                                 </th>
                                 <th (click)="sortBy('email')" class="col-4" style="cursor: pointer;" class="col-3">
-                                    Email
+                                    {{'patients.email.title' | translate}}
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'email' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -42,7 +45,7 @@
                                     </fa-icon>
                                 </th>
                                 <th (click)="sortBy('phone')" class="col-4" style="cursor: pointer;" class="col-3">
-                                    Phone
+                                    {{'patients.phone.title' | translate}}
                                     <fa-icon [icon]="icons.faAngleUp"
                                         *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'asc'">
                                     </fa-icon>
@@ -50,7 +53,9 @@
                                         *ngIf="searchCriteria.orderBy == 'phone' && searchCriteria.orderDir == 'desc'">
                                     </fa-icon>
                                 </th>
-                                <th class="col-1">Action</th>
+                                <th class="col-1">
+                                    {{'view.action.title' | translate}}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,7 +71,7 @@
                                         </button>
                                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                                             <a href="#" appStopPropagation [routerLink]="[patient.guid,'profile']"
-                                                ngbDropdownItem>Perfil</a>
+                                                ngbDropdownItem>{{'patients.profile.title' | translate}}</a>
                                         </div>
                                     </div>
                                 </td>

@@ -32,5 +32,84 @@
             "title": "Log Out",
             "text": ""
         }
-    }
+    },
+    "navbar": {
+        "notifications": {
+            "title": "Notifications",
+            "text": ""
+        },
+        "settings": {
+            "title": "Settings",
+            "text": ""
+        },
+        "help": {
+            "title": "Help",
+            "text": ""
+        }
+    },
+    "view": {
+        "search": {
+            "title": "Search"
+        },
+        "new": {
+            "title": "New"
+        },
+        "edit": {
+            "title": "Edit"
+        },
+        "cancel": {
+            "title": "Cancel"
+        },
+        "save": {
+            "title": "Save"
+        },
+        "required_field": {
+            "title": "Required field"
+        },
+        "action": {
+            "title": "Action"
+        }
+    },
+    "patients": {
+        "title_plural": {
+            "title": "Patients"
+        },
+        "title_singular": {
+            "title": "Patient"
+        },
+        "name": {
+            "title": "Name"
+        },
+        "lastName": {
+            "title": "Last Name"
+        },
+        "birthday": {
+            "title": "Birthday"
+        },
+        "age": {
+            "title": "Age"
+        },
+        "email": {
+            "title": "Email"
+        },
+        "phone": {
+            "title": "Phone"
+        },
+        "profile": {
+            "title": "Profile"
+        },
+        "new_patient": {
+            "title": "New Patient"
+        },
+        "edit_patient": {
+            "title": "Edit Patient"
+        },
+        "profile_patient": {
+            "title": "Patient Profile"
+        },
+        "gender":{
+            "title": "Gender"
+        }
+    },
+    "home": {}
 }

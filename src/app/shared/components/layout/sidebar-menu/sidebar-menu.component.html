@@ -6,10 +6,8 @@
   <ul class="list-group content mt-5">
     <div class="option" *ngFor="let item of options">
       <div class="d-flex">
-
         <a href="#" (click)="closeBar()" appStopPropagation [routerLink]="[item.route]" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact:false}" class="list-group-item list-group-item-action"
-          *ngIf="!item.isSeparator">
+          class="list-group-item list-group-item-action" *ngIf="!item.isSeparator">
           <fa-icon class="icon" *ngIf="item.icon" [icon]="item.icon"></fa-icon>
           {{item.text | translate}}
         </a>

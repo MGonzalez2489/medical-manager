@@ -35,5 +35,4 @@ export class SidebarMenuComponent implements OnInit {
     this.options.push(new SideBarOptionModel(false, 'fAQs', 'sidebar.logout.title', faSignOutAlt));
 
   }
-
 }

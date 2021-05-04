@@ -21,17 +21,25 @@ $gray-label: #818fa0;
   }
 
   .list-group-item-action {
+    &:active,
+    &:focus {
+      background-color: $dark-primary;
+      color: $white;
+    }
+  }
+
+  .list-group-item-action {
     color: $gray-label;
     border: 0px;
-    background-color: inherit;
+    background-color: $dark-primary;
     padding: 8px 30px 8px 45px;
     &:hover {
       color: #bdcfe6;
-      background-color: inherit;
+      background-color: $dark-primary;
     }
     &.active {
       color: $white;
-      background-color: inherit;
+      background-color: $dark-primary;
     }
     &:focus-visible {
       outline: none;
