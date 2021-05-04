@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Patient } from 'src/app/core/models/db';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
-import { EnumService, SessionService } from 'src/app/core/services';
+import { EnumService } from 'src/app/core/services';
 import { KeyNameModel } from 'src/app/core/models';
 import { NgbDateCustomParserFormatter } from 'src/app/shared/formaters';
 import { PatientService } from '../services/patient.service';
@@ -22,10 +22,11 @@ export class PatientFormComponent implements OnInit {
     faCalendar
   };
   genderList = new Array<KeyNameModel>();
+  get pForm() { return this.patientForm.controls; }
   constructor(private formBuilder: FormBuilder,
     private patientService: PatientService,
     private router: Router) { }
-  get pForm() { return this.patientForm.controls; }
+  
   ngOnInit(): void {
     this.genderList = EnumService.getGenderArray();
     this.initializeForm();

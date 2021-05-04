@@ -1,1 +1,5 @@
 export * from './layout/navbar/navbar.component'
+export * from './layout/breadcrumb/breadcrumb.component'
+export * from './layout/page/page.component'
+export * from './layout/page-header/page-header.component'
+export * from './layout/sidebar-menu/sidebar-menu.component'

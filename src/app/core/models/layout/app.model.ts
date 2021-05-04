@@ -3,6 +3,9 @@ export class AppModel {
     size: {
         width: number,
         height: number,
+    };
+    appointment:{
+        defaultTimeDuration: number
     }
 
     constructor() {

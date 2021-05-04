@@ -9,7 +9,7 @@
             <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
               <div class="form-group">
                 <label for="emailinp">Email</label>
-                <input id="emailinp" name="emailinp" placeholder="Email address" type="text"  class="form-control" formControlName="email" [ngClass]="{'is-invalid': isSubmitted && lForm.email.errors}" autofocus>
+                <input name="emailinp" placeholder="Email address" type="text"  class="form-control" formControlName="email" [ngClass]="{'is-invalid': isSubmitted && lForm.email.errors}" autofocus autocomplete="username">
                 <div *ngIf="isSubmitted && lForm.email.errors" class="invalid-feedback">
                   <span *ngIf="lForm.email.errors.required">Email is required</span>
                   <span *ngIf="lForm.email.errors.email">Incorrect email format</span>
@@ -17,13 +17,13 @@
               </div>
               <div class="form-group">
                 <label for="passwordInp">Password</label>
-                <input id="passwordInp" name="passwordInp" placeholder="Password" type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': isSubmitted && lForm.password.errors}">
+                <input name="passwordInp" placeholder="Password" type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': isSubmitted && lForm.password.errors}" autocomplete="current-password">
                 <div *ngIf="isSubmitted && lForm.password.errors" class="invalid-feedback">
                   <span *ngIf="lForm.password.errors.required">Password is required</span>
                 </div>
               </div>
               <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="rememberMe">
+                <input type="checkbox" class="form-check-input" name="exampleCheck1" formControlName="rememberMe">
                 <label class="form-check-label" for="exampleCheck1">Remember Me</label>
               </div>
               <div class="form-group">

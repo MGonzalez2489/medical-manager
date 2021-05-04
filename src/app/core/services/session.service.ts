@@ -34,7 +34,7 @@ export class SessionService {
   deleteSession(): void {
     this.currentSession.complete();
     localStorage.removeItem(this.SESSION_KEY);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
   getSession(): Observable<Session> {
     if (!this.currentSession.value) {

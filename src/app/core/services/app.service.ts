@@ -81,6 +81,7 @@ export class AppService {
   }
   private loadAppGlobals() {
     this.app.name = GlobalConstants.App.name;
+    this.app.appointment = GlobalConstants.Appointment;
   }
   private isEmptyObject(obj) {
     return (obj && (Object.keys(obj).length === 0));

@@ -5,7 +5,7 @@
                 <div class="col-12 d-flex justify-content-between align-items-center">
                     <input type="text" class="form-control w-50" name="" id="" aria-describedby="helpId"
                         [placeholder]="'view.search.title' | translate" [(ngModel)]="searchCriteria.keyword"
-                        (ngModelChange)="getPatients()">
+                        (ngModelChange)="getPatients()" autofocus>
                     <a href="" appStopPropagation class="btn btn-primary" [routerLink]="['new']"
                         routerLinkActive="router-link-active">
                         {{'view.new.title' | translate}}
