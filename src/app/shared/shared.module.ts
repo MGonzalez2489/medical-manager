@@ -19,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AppointmentFormComponent } from './components/appointments/appointment-form/appointment-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SidebarMenuComponent, 
     BreadcrumbComponent, 
     PageHeaderComponent, 
-    PageComponent
+    PageComponent, 
+    AppointmentFormComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     GenderPipe,
     TranslateModule,
     CalendarModule,
-    NgSelectModule
+    NgSelectModule,
+    AppointmentFormComponent
   ]
 })
 export class SharedModule { }
