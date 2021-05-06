@@ -9,4 +9,8 @@ export abstract class User extends DbModel {
   phone: string;
   gender: UserGender;
   userType: UserType;
+
+  getFullName(): string {
+    return this.firstName + ' ' + this.lastName;
+  }
 }

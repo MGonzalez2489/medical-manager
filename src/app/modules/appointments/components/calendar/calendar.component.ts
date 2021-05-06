@@ -3,7 +3,7 @@ import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMo
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView, } from 'angular-calendar';
 import { RequestService } from 'src/app/core/services';
-import { Appointment } from 'src/app/core/models/db';
+import { Appointment, Patient } from 'src/app/core/models/db';
 import { Subject } from 'rxjs/internal/Subject';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -41,6 +41,7 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
   CalendarView = CalendarView;
   refresh: Subject<any> = new Subject();
+  activeDayIsOpen: boolean = true;
   constructor(private modal: NgbModal, private rService: RequestService) { }
 
   ngOnInit(): void {
@@ -51,9 +52,10 @@ export class CalendarComponent implements OnInit {
     this.calendarAppointments$ = this.rService.getList<Appointment>('appointment/upcoming').pipe(
       map((result: ReturnListModel<Appointment>) => {
         return result.model.map((appt: Appointment) => {
+          appt = Object.assign(new Appointment(), appt);
           return {
             start: new Date(appt.startDate),
-            title: 'A 3 day event',
+            title: (Object.assign(new Patient(), appt.patient)).getFullName(), //(appt.patient as Patient).getFullName(),
             color: colors.red,
             allDay: false,
             draggable: false,
@@ -90,5 +92,11 @@ export class CalendarComponent implements OnInit {
     console.log("ACTION", action);
     console.log("EVENT", event);
 
+  }
+  closeOpenMonthViewDay() {
+    this.activeDayIsOpen = false;
+  }
+  setView(view: CalendarView) {
+    this.view = view;
   }
 }
