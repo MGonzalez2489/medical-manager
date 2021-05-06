@@ -4,6 +4,7 @@ import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { AppService, RequestService, SessionService } from 'src/app/core/services';
 import { BaseSearchCriteria } from 'src/app/core/models/searchCriteria';
 import { KeyNameModel } from 'src/app/core/models';
+import { NgbDateCustomParserFormatter } from 'src/app/shared/formaters';
 
 @Component({
   selector: 'app-appointment-form',
@@ -61,7 +62,21 @@ export class AppointmentFormComponent implements OnInit {
     }
   }
   submit() {
-    
+    const parser = new NgbDateCustomParserFormatter();
+    const newAppt = new Appointment();
+    newAppt.doctor = this.appointment.doctor;
+    newAppt.duration = this.appointment.duration;
+    newAppt.patient = this.appointment.patient;
+    newAppt.startDate = parser.formatAPI(this.appointment.startDateNg);
+    newAppt.startTime = parser.formatTimeAPI(this.appointment.startTimeNg);
+    console.log("NEW APPT", newAppt);
+
+    this.rService.postWithModel('appointment', newAppt).subscribe(data => {
+      console.log("DATA RESPONSE", data);
+    }, error => {
+      console.log("ERROR RESPONSE", error);
+    });
+
   }
   cancel() { }
 

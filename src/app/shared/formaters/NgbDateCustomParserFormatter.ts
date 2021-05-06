@@ -1,17 +1,18 @@
-import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateParserFormatter, NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class NgbDateCustomParserFormatter extends NgbDateParserFormatter {
   readonly DELIMITER = '-';
+  readonly TIME_DELIMITER = ':';
 
   parse(value: string): NgbDateStruct | null {
     if (value) {
       const date = value.split(this.DELIMITER);
       return {
-        day : parseInt(date[1], 10),
-        month : parseInt(date[0], 10),
-        year : parseInt(date[2], 10)
+        day: parseInt(date[1], 10),
+        month: parseInt(date[0], 10),
+        year: parseInt(date[2], 10)
       };
     }
     return null;
@@ -23,6 +24,9 @@ export class NgbDateCustomParserFormatter extends NgbDateParserFormatter {
 
   formatAPI(date: NgbDateStruct | null): string {
     return date ? date.year + this.DELIMITER + this.twoDigitsFormat(date.month) + this.DELIMITER + this.twoDigitsFormat(date.day) : '';
+  }
+  formatTimeAPI(time: NgbTimeStruct | null): string {
+    return time ? time.hour + this.TIME_DELIMITER + time.minute + this.TIME_DELIMITER + '00' : '';
   }
 
   twoDigitsFormat(val: number): string {
