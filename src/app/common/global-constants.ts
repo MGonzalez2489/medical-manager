@@ -3,6 +3,6 @@ export class GlobalConstants {
         name: 'Nombre de la app'
     };
     public static Appointment = {
-        defaultTimeDuration: 30 //minutes
+        defaultTimeDuration: 15 //minutes
     }
 }

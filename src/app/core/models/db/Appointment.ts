@@ -14,5 +14,6 @@ export class Appointment extends DbModel {
 
   startDateNg?: NgbDateStruct;
   startTime: string;
-  startTimeNg?: NgbTimeStruct;
+  startHour: number;
+  startMinute: number;
 }

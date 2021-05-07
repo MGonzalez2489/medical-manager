@@ -23,6 +23,8 @@ export class AppointmentFormComponent implements OnInit {
   icons = {
     faCalendar
   };
+  availableTime: string[] = [];
+
   meridian = true;
   constructor(
     private rService: RequestService,
@@ -31,7 +33,8 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   initializeForm() {
-    this.appointment.startTimeNg = { hour: 13, minute: 30, second: 0 };
+    // this.appointment.startTimeNg = { hour: 13, minute: 30, second: 0 };
+
     const current = new Date();
     this.minDate = {
       year: current.getFullYear(),
@@ -39,7 +42,7 @@ export class AppointmentFormComponent implements OnInit {
       day: current.getDate()
     };
     this.appointment.duration = this.appService.app.appointment.defaultTimeDuration;
-
+    this.generateApptTimePeriodsHour();
     const sessionUser = this.session.getLoggedInUser();
     this.appointment.doctor = sessionUser.guid;
 
@@ -65,10 +68,10 @@ export class AppointmentFormComponent implements OnInit {
     const parser = new NgbDateCustomParserFormatter();
     const newAppt = new Appointment();
     newAppt.doctor = this.appointment.doctor;
-    newAppt.duration = this.appointment.duration;
+    newAppt.duration = Number(this.appointment.duration);
     newAppt.patient = this.appointment.patient;
     newAppt.startDate = parser.formatAPI(this.appointment.startDateNg);
-    newAppt.startTime = parser.formatTimeAPI(this.appointment.startTimeNg);
+    //newAppt.startTime = parser.formatTimeAPI(this.appointment.startTimeNg);
     console.log("NEW APPT", newAppt);
 
     this.rService.postWithModel('appointment', newAppt).subscribe(data => {
@@ -79,5 +82,16 @@ export class AppointmentFormComponent implements OnInit {
 
   }
   cancel() { }
-
+  generateApptTimePeriodsHour() {
+    this.availableTime = [];
+    let startTime = 8 * 60;
+    var ap = ['AM', 'PM'];
+    for (let i = 0; startTime <= (24 * 60) - (this.appointment.duration); i++) {
+      const hh = Math.floor(startTime / 60);
+      var mm = (startTime % 60);
+      const newTime = ("" + ((hh == 12) ? 12 : hh % 12)).slice(-2) + ':' + ("0" + mm).slice(-2) + ap[Math.floor(hh / 12)]; //("0" + (hh % 12)).slice(-2) + ':' + ("0" + mm).slice(-2) + ap[Math.floor(hh / 12)]; // pushing data in array in [00:00 - 12:00 AM/PM format]
+      this.availableTime.push(newTime);
+      startTime = startTime + this.appointment.duration;
+    }
+  }
 }

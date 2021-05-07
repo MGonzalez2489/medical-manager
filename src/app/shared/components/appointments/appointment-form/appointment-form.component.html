@@ -10,7 +10,7 @@
         </ng-select>
     </div>
     <div class="form-group row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <label for="text" class="form-label">Date</label>
             <div class="input-group">
                 <input class="form-control" [minDate]="minDate" placeholder="mm/dd/yyyy" onDrag="return false"
@@ -24,6 +24,33 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <select id="duration" class="form-control" name="duration" [(ngModel)]="appointment.duration"
+                    (ngModelChange)="generateApptTimePeriodsHour()">
+                    <option value="15">15 Minutes</option>
+                    <option value="30">30 Minutes</option>
+                    <option value="60">60 Minutes</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="my-select">Hour</label>
+                <ng-select [items]="availableTime" name="hourTime" [(ngModel)]="appointment.startHour"></ng-select>
+            </div>
+        </div>
+        <!-- <div class="col-md-3">
+            <div class="form-group">
+                <label for="my-select">Minutes</label>
+                <ng-select [items]="availableTimeMinutes" name="minuteTime" [(ngModel)]="appointment.startMinute">
+                </ng-select>
+            </div>
+        </div> -->
+
+    </div>
+    <!-- <div class="form-group row">
         <div class="col-md-6">
             <label for="text" class="form-label">Time</label>
             <div class="input-group">
@@ -31,12 +58,7 @@
                     [minuteStep]="appointment.duration" [spinners]="false"></ngb-timepicker>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="duration">Duration</label>
-        <input id="duration" name="duration" type="number" [disabled]="true" [(ngModel)]="appointment.duration"
-            class="form-control">
-    </div>
+    </div> -->
     <div class="form-group d-flex justify-content-end">
         <button name="submit" type="cancel" class="btn btn-link mr-2">Cancel</button>
         <button name="submit" type="submit" (click)="submit()" class="btn btn-primary">Submit</button>
