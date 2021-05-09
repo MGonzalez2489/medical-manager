@@ -1,68 +1,60 @@
 <form>
-    <div class="form-group">
-        <label for="patient" class="form-label">Patient</label>
-        <ng-select name="patientSearch" [items]="patients" bindLabel="firstName" autofocus bindValue="guid"
-            [(ngModel)]="appointment.patient" (search)="getPatients($event)"
-            placeholder="Please enter 2 or more characters">
-            <ng-template ng-label-tmp ng-option-tmp let-item="item">
-                {{item.firstName + ' ' + item.lastName}}
-            </ng-template>
-        </ng-select>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Appointment</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss(false)">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="form-group row">
-        <div class="col-md-3">
-            <label for="text" class="form-label">Date</label>
-            <div class="input-group">
-                <input class="form-control" [minDate]="minDate" placeholder="mm/dd/yyyy" onDrag="return false"
-                    onDrop="return false" onPaste="return false" autocomplete="off" [firstDayOfWeek]="7"
-                    (keydown)="$event.preventDefault();sd.open()" name="sd" [(ngModel)]="appointment.startDateNg"
-                    ngbDatepicker #sd="ngbDatepicker">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" (click)="sd.toggle()" type="button">
-                        <fa-icon [icon]="icons.faCalendar"></fa-icon>
-                    </button>
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label for="patient" class="form-label">Patient</label>
+            <ng-select name="patientSearch" [items]="patients" bindLabel="firstName" autofocus bindValue="guid"
+                [(ngModel)]="appointment.patient" (search)="getPatients($event)"
+                placeholder="Please enter 2 or more characters">
+                <ng-template ng-label-tmp ng-option-tmp let-item="item">
+                    {{item.firstName + ' ' + item.lastName}}
+                </ng-template>
+            </ng-select>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="text" class="form-label">Date</label>
+                <div class="input-group">
+                    <input class="form-control" [minDate]="minDate" placeholder="mm/dd/yyyy" onDrag="return false"
+                        onDrop="return false" onPaste="return false" autocomplete="off" [firstDayOfWeek]="7"
+                        (keydown)="$event.preventDefault();sd.open()" name="sd" [(ngModel)]="appointment.startDateNg"
+                        ngbDatepicker #sd="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" (click)="sd.toggle()" type="button">
+                            <fa-icon [icon]="icons.faCalendar"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <select id="duration" class="form-control" name="duration" [(ngModel)]="appointment.duration"
+                        (ngModelChange)="generateApptTimePeriodsHour()">
+                        <option value="15">15 Minutes</option>
+                        <option value="30">30 Minutes</option>
+                        <option value="60">60 Minutes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="my-select">Hour</label>
+                    <ng-select [items]="availableTime" name="hourTime" [(ngModel)]="appointment.startTime">
+                    </ng-select>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="duration">Duration</label>
-                <select id="duration" class="form-control" name="duration" [(ngModel)]="appointment.duration"
-                    (ngModelChange)="generateApptTimePeriodsHour()">
-                    <option value="15">15 Minutes</option>
-                    <option value="30">30 Minutes</option>
-                    <option value="60">60 Minutes</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="my-select">Hour</label>
-                <ng-select [items]="availableTime" name="hourTime" [(ngModel)]="appointment.startHour"></ng-select>
-            </div>
-        </div>
-        <!-- <div class="col-md-3">
-            <div class="form-group">
-                <label for="my-select">Minutes</label>
-                <ng-select [items]="availableTimeMinutes" name="minuteTime" [(ngModel)]="appointment.startMinute">
-                </ng-select>
-            </div>
-        </div> -->
-
     </div>
-    <!-- <div class="form-group row">
-        <div class="col-md-6">
-            <label for="text" class="form-label">Time</label>
-            <div class="input-group">
-                <ngb-timepicker name="timePicker" [(ngModel)]="appointment.startTimeNg" [meridian]="true"
-                    [minuteStep]="appointment.duration" [spinners]="false"></ngb-timepicker>
-            </div>
-        </div>
-    </div> -->
-    <div class="form-group d-flex justify-content-end">
-        <button name="submit" type="cancel" class="btn btn-link mr-2">Cancel</button>
+    <div class="modal-footer">
+        <pre>{{appointment.startTime}}</pre>
+        <button name="cancel" type="cancel" class="btn btn-link mr-2" (click)="activeModal.close(false)">Cancel</button>
         <button name="submit" type="submit" (click)="submit()" class="btn btn-primary">Submit</button>
-
     </div>
-    <pre>{{appointment | json}}</pre>
 </form>

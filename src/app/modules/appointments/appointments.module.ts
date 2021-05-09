@@ -7,12 +7,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CalendarComponent } from './components/calendar/calendar.component';
 
 
+
 @NgModule({
   declarations: [AppointmentListComponent, CalendarComponent],
   imports: [
     CommonModule,
     AppointmentsRoutingModule,
     SharedModule
-  ]
+  ],
+ 
 })
 export class AppointmentsModule { }

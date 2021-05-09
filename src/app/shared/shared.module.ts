@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { 
-  BreadcrumbComponent, 
-  NavbarComponent, 
-  PageComponent, 
-  PageHeaderComponent, 
-  SidebarMenuComponent 
+import {
+  BreadcrumbComponent,
+  NavbarComponent,
+  PageComponent,
+  PageHeaderComponent,
+  SidebarMenuComponent
 } from './components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { AgePipe, PhonePipe } from './pipes';
 import { GenderPipe } from './pipes/gender.pipe';
@@ -23,15 +23,15 @@ import { AppointmentFormComponent } from './components/appointments/appointment-
 
 @NgModule({
   declarations: [
-    NavbarComponent, 
-    StopPropagationDirective, 
-    PhonePipe, 
-    AgePipe, 
-    GenderPipe, 
-    SidebarMenuComponent, 
-    BreadcrumbComponent, 
-    PageHeaderComponent, 
-    PageComponent, 
+    NavbarComponent,
+    StopPropagationDirective,
+    PhonePipe,
+    AgePipe,
+    GenderPipe,
+    SidebarMenuComponent,
+    BreadcrumbComponent,
+    PageHeaderComponent,
+    PageComponent,
     AppointmentFormComponent
   ],
   imports: [
@@ -62,6 +62,9 @@ import { AppointmentFormComponent } from './components/appointments/appointment-
     CalendarModule,
     NgSelectModule,
     AppointmentFormComponent
+  ],
+  providers: [
+    NgbActiveModal
   ]
 })
 export class SharedModule { }

@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'home', loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule) },
       { path: 'patients', loadChildren: () => import('./modules/patients/patients.module').then((m) => m.PatientsModule) },
       { path: 'appointments', loadChildren: () => import('./modules/appointments/appointments.module').then((m) => m.AppointmentsModule) },
+      { path: 'settings', loadChildren: () => import('./modules/settings/settings.module').then((m) => m.SettingsModule) },
       {
         path: '',
         redirectTo: 'home',

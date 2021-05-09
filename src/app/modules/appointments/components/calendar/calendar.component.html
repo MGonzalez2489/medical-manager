@@ -36,41 +36,17 @@
         </div>
     </div>
     <div class="col-12">
-        <div *ngIf="calendarAppointments$ | async; else loading; let events">
-            <div [ngSwitch]="view">
-                <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
-                    (eventClicked)="handleEvent('Clicked', $event.event)">
-                </mwl-calendar-month-view>
-                <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events"
-                    (eventClicked)="handleEvent('Clicked', $event.event)">
-                </mwl-calendar-week-view>
-                <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events"
-                    (eventClicked)="handleEvent('Clicked', $event.event)">
-                </mwl-calendar-day-view>
-            </div>
+        <div [ngSwitch]="view">
+            <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="calendarAppointments"
+                (eventClicked)="handleEvent('Clicked', $event.event)" [refresh]="refresh">
+            </mwl-calendar-month-view>
+            <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="calendarAppointments"
+                (eventClicked)="handleEvent('Clicked', $event.event)" (hourSegmentClicked)="clickSegment($event)"
+                [dayStartHour]="8" [dayEndHour]="20" [hourSegments]="4" [refresh]="refresh">
+            </mwl-calendar-week-view>
+            <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="calendarAppointments"
+                (eventClicked)="handleEvent('Clicked', $event.event)" [refresh]="refresh">
+            </mwl-calendar-day-view>
         </div>
-        <ng-template #loading>
-            <div class="text-center">
-                <i class="fas fa-spin fa-spinner fa-5x"></i> <br />
-                Loading events...
-            </div>
-        </ng-template>
     </div>
 </div>
-
-
-<!-- <div class="container-fluid">
-
-    <div [ngSwitch]="view">
-        <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate"
-            [events]="calendarAppointments" (eventClicked)="handleEvent('Clicked', $event.event)">
-        </mwl-calendar-month-view>
-        <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="calendarAppointments"
-            (eventClicked)="handleEvent('Clicked', $event.event)">
-        </mwl-calendar-week-view>
-        <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="calendarAppointments"
-            (eventClicked)="handleEvent('Clicked', $event.event)">
-        </mwl-calendar-day-view>
-    </div>
-
-</div> -->
