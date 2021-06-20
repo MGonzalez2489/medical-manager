@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SessionService } from 'src/app/core/services';
+import { PatientService } from '../services/patient.service';
 import { PatientListComponent } from './patients-list.component';
 
 
@@ -8,7 +10,8 @@ describe('PatientsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PatientListComponent]
+      declarations: [PatientListComponent],
+      imports: [PatientService, SessionService]
     })
       .compileComponents();
   });

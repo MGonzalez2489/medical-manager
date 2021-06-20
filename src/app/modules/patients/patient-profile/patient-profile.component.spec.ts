@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { SessionService } from 'src/app/core/services';
+import { PatientService } from '../services/patient.service';
 
 import { PatientProfileComponent } from './patient-profile.component';
 
@@ -8,9 +11,10 @@ describe('PatientProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PatientProfileComponent ]
+      declarations: [PatientProfileComponent],
+      imports: [ActivatedRoute, SessionService, PatientService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

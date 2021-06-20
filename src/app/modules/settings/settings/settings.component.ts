@@ -29,15 +29,17 @@ export class SettingsComponent implements OnInit {
     const group: any = {};
     settings.forEach(s => {
       group[s.key] = new FormControl(s.value || null, [Validators.required])
-      //this.s.push(new FormControl(s.value || null, [Validators.required]))
-
-
     });
 
     this.settingsForm = new FormGroup(group);
-    console.log("SETTINGS FORM", this.settingsForm);
   }
   submit() {
-
+    if (this.settingsForm.valid) {
+      this.settingsService.putSettings(this.settingsForm.value).subscribe(data => {
+        console.log("data", data);
+      }, error => {
+        console.log("ERRO", error);
+      })
+    }
   }
 }

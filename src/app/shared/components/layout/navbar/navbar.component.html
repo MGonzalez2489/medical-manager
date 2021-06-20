@@ -21,11 +21,7 @@
         <fa-icon [icon]="icons.faBell"></fa-icon>
       </a>
     </li>
-    <li class="nav-item">
-      <a href="#" appStopPropagation class="nav-link" [routerLink]="['/settings']" routerLinkActive="router-link-active"  [title]="'navbar.settings.title' | translate">
-        <fa-icon [icon]="icons.faCog"></fa-icon>
-      </a>
-    </li>
+
     <li class="nav-item">
       <a href="#" appStopPropagation class="nav-link" [title]="'navbar.help.title' | translate">
         <fa-icon [icon]="icons.faQuestionCircle"></fa-icon>
@@ -44,8 +40,10 @@
         </div>
         <div *ngIf="session">
           <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/']">Account</a>
-          <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/']">Option 2</a>
-          <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/']">Option 3</a>
+          <a href="" appStopPropagation ngbDropdownItem [routerLink]="['/settings']">
+            <fa-icon [icon]="icons.faCog"></fa-icon>
+            Settings
+          </a>
           <a href="" appStopPropagation ngbDropdownItem (click)="logout()">Log out</a>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Setting } from 'src/app/core/models/db';
-import { ReturnListModel } from 'src/app/core/models/responses';
+import { ReturnListModel, ReturnModel } from 'src/app/core/models/responses';
 import { RequestService } from 'src/app/core/services';
 
 @Injectable({
@@ -13,5 +13,8 @@ export class SettingService {
 
   getSettings(): Observable<ReturnListModel<Setting>> {
     return this.requestService.getList<Setting>('settings');
+  }
+  putSettings(values): Observable<ReturnListModel<boolean>> {
+    return this.requestService.putList<boolean>('settings', values);
   }
 }

@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private sessionService: SessionService,
     private router: Router) { 
-      this.sessionService.initSession();
     }
   get lForm() { return this.loginForm.controls; }
   ngOnInit(): void {
+    this.sessionService.initSession();
     this.initializeForm();
   }
   initializeForm(): void {

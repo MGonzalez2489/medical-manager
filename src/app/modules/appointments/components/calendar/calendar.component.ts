@@ -43,7 +43,7 @@ export class CalendarComponent implements OnInit {
   CalendarView = CalendarView;
   refresh: Subject<any> = new Subject();
   activeDayIsOpen: boolean = true;
-  constructor(private modal: NgbModal, private rService: RequestService, private modalService: NgbModal) { }
+  constructor(private rService: RequestService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getAppointments();

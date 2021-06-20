@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RequestService } from 'src/app/core/services';
 
 import { CalendarComponent } from './calendar.component';
 
@@ -8,7 +10,8 @@ describe('CalendarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalendarComponent ]
+      declarations: [ CalendarComponent ],
+      providers:[RequestService,NgbModal]
     })
     .compileComponents();
   });
