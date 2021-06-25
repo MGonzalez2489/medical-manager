@@ -23,12 +23,9 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="passwordConfirmation">Confirmation</label>
-                <input name="passwordConfirmatin" placeholder="Password Confirmation" type="password" class="form-control" formControlName="passwordConfirmation" [ngClass]="{'is-invalid': isSubmitted && sForm.passwordConfirmation.errors}" autocomplete="false" />
-                                <div *ngIf="isSubmitted && sForm.password.errors" class="invalid-feedback">
-                  <span *ngIf="sForm.password.errors.required">Password is required</span>
-                </div>
 
+                <label for="passwordInp">Password</label>
+                <input name="passwordInp" placeholder="Password" type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': isSubmitted && sForm.password.errors}" autocomplete="current-password">
               </div>
               <div class="form-group">
                 <!-- <app-alert-message *ngIf="errorMessage" [message]="errorMessage" [type]="alert"></app-alert-message> -->

@@ -61,7 +61,7 @@ import { AppointmentFormComponent } from './components/appointments/appointment-
     TranslateModule,
     CalendarModule,
     NgSelectModule,
-    AppointmentFormComponent
+    AppointmentFormComponent,
   ],
   providers: [
     NgbActiveModal
